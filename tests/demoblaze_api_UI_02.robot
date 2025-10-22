@@ -1,0 +1,64 @@
+*** Settings ***
+Library    SeleniumLibrary
+Library    RequestsLibrary
+Library    Collections
+
+*** Variables ***
+${API_BASE}    https://api.demoblaze.com
+${TIMEOUT}     10
+${BROWSER}     chrome
+
+*** Keywords ***
+Get Phone Titles From API
+    Create Session    demoblaze    ${API_BASE}
+    ${resp}=    GET On Session    demoblaze    /entries    expected_status=200
+    ${data}=    Evaluate    $resp.json()
+    ${items}=   Get From Dictionary    ${data}    Items
+    # Keep only phones (API cat is 'phone')
+    ${phones}=    Evaluate    [i for i in $items if str(i.get('cat','')).lower() == 'phone']
+    ${titles}=     Evaluate    sorted({ i['title'].strip() for i in $phones })
+    [Return]    ${titles}
+
+Open Demoblaze And Go To Phones
+    Open Browser    https://www.demoblaze.com/    ${BROWSER}
+    Maximize Browser Window
+    Wait Until Page Contains Element    css=#tbodyid .card-title a    ${TIMEOUT}
+    Click Element    xpath=//a[normalize-space(.)='Phones']
+    Wait Until Page Contains Element    css=#tbodyid .card-title a    ${TIMEOUT}
+
+Collect All UI Titles In Phones
+    ${seen}=    Create List
+    ${stall}=   Set Variable    0
+    WHILE    ${stall} < 2
+        ${els}=    Get WebElements    css=#tbodyid .card-title a
+        ${page}=   Create List
+        FOR    ${el}    IN    @{els}
+            ${t}=    Get Text    ${el}
+            Append To List    ${page}    ${t.strip()}
+        END
+        ${before}=    Get Length    ${seen}
+        ${seen}=      Evaluate    list(sorted(set($seen) | set($page)))
+        ${after}=     Get Length    ${seen}
+        ${stall}=     Set Variable    ${${after} <= ${before} and ${stall}+1 or 0}
+        ${has_next}=  Run Keyword And Return Status    Page Should Contain Element    id=next2
+        Run Keyword If    not ${has_next}    Exit For Loop
+        Click Element    id=next2
+        Wait Until Page Contains Element    css=#tbodyid .card-title a    ${TIMEOUT}
+    END
+    [Return]    ${seen}
+
+Assert API Phones Are In UI
+    [Arguments]    ${api_titles}    ${ui_titles}
+    ${missing}=    Evaluate    sorted(list(set($api_titles) - set($ui_titles)))
+    Log    UI titles: ${ui_titles}
+    Log    API titles: ${api_titles}
+    Should Be Empty    ${missing}    Missing from UI: ${missing}
+
+*** Test Cases ***
+Verify Phone Products From API Are Shown In UI
+    ${api_titles}=    Get Phone Titles From API
+    Open Demoblaze And Go To Phones
+    ${ui_titles}=     Collect All UI Titles In Phones
+    Assert API Phones Are In UI    ${api_titles}    ${ui_titles}
+    Close Browser
+
