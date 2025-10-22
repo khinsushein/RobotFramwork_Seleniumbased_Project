@@ -1,106 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.1 on win32)" generated="2025-10-22T10:20:30.965063" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.1 on win32)" generated="2025-10-22T14:28:46.576771" rpa="false" schemaversion="5">
 <suite id="s1" name="demoblaze api UI 01" source="c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api_UI_01.robot">
-<test id="s1-t1" name="Verify Products From API Are Shown In UI" line="22">
+<test id="s1-t1" name="Verify Products From API Are Shown In UI" line="34">
 <kw name="Get Product Titles From API">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-10-22T10:20:31.385135" level="INFO">Creating Session using : alias=demoblaze, url=https://api.demoblaze.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-10-22T14:28:46.940533" level="INFO">Creating Session using : alias=demoblaze, url=https://api.demoblaze.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>demoblaze</arg>
 <arg>https://api.demoblaze.com</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-10-22T10:20:31.384831" elapsed="0.003355"/>
+<status status="PASS" start="2025-10-22T14:28:46.940241" elapsed="0.003990"/>
 </kw>
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-10-22T10:20:31.798440" level="INFO">GET Request : url=https://api.demoblaze.com/entries 
+<msg time="2025-10-22T14:28:47.322880" level="INFO">GET Request : url=https://api.demoblaze.com/entries 
  path_url=/entries 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2025-10-22T10:20:31.799439" level="INFO">GET Response : url=https://api.demoblaze.com/entries 
+<msg time="2025-10-22T14:28:47.323399" level="INFO">GET Response : url=https://api.demoblaze.com/entries 
  status=200, reason=OK 
- headers={'content-type': 'application/json', 'vary': 'Accept-Encoding', 'content-encoding': 'gzip', 'x-cloud-trace-context': '2256b7b5a8735c5bcf925c6c6ee3beb2', 'date': 'Wed, 22 Oct 2025 08:20:31 GMT', 'server': 'Google Frontend', 'Content-Length': '995'} 
+ headers={'content-type': 'application/json', 'vary': 'Accept-Encoding', 'content-encoding': 'gzip', 'x-cloud-trace-context': '7382e4092d03cca3e0d34105bc488de6', 'date': 'Wed, 22 Oct 2025 12:28:47 GMT', 'server': 'Google Frontend', 'Content-Length': '995'} 
  body={"Items":[{"cat":"phone","desc":"The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expanded. ","id":1,"img":"imgs/galaxy_s6.jpg","price":360.0,"title":"Samsung galaxy s6"},{"cat":"phone","desc":"The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM. ","id":2,"img":"imgs/Lumia_1520.jpg","price":820.0,"title":"Nokia lumia 1520"},{"cat":"phone","desc":"The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.","id":3,"img":"imgs/Nexus_6.jpg","price":650.0,"title":"Nexus 6"},{"cat":"phone","desc":"The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage that can be expanded up\n to 200GB via a microSD card.","id":4,"img":"imgs/galaxy_s6.jpg","price":800.0,"title":"Samsung galaxy s7"},{"cat":"phone","desc":"It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concerned, the Apple \niPhone 6 packs a 8-megapixel primary camera on the rear and a \n1.2-megapixel front shooter for selfies.","id":5,"img":"imgs/iphone_6.jpg","price":790.0,"title":"Iphone 6 32gb"},{"cat":"phone","desc":"Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display with a resolution of 1080 \npixels by 1920 pixels at a PPI of 424 pixels per inch.","id":6,"img":"imgs/xperia_z5.jpg","price":320.0,"title":"Sony xperia z5"},{"cat":"phone","desc":"The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone packs 32GB of internal\n storage that can be expanded up to 128GB via a microSD card. ","id":7,"img":"imgs/HTC_M9.jpg","price":700.0,"title":"HTC One M9"},{"cat":"notebook","desc":"Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook to Apple's 13-inch \nMacBook Pro. And in a lot of ways this notebook is better, thanks to a \nlighter weight.","id":8,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i5"},{"cat":"notebook","desc":"REVIEW\n \nSony is so confident that the VAIO S is a superior \nultraportable laptop that the company proudly compares the notebook to \nApple's 13-inch MacBook Pro. And in a lot of ways this notebook is \nbetter, thanks to a lighter weight, higher-resolution display, more \nstorage space, and a Blu-ray drive. ","id":9,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i7\n"}],"LastEvaluatedKey":{"id":"9"}}
  
  </msg>
-<msg time="2025-10-22T10:20:31.800623" level="INFO">c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.demoblaze.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-10-22T14:28:47.323720" level="INFO">c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.demoblaze.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-10-22T10:20:31.802159" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<msg time="2025-10-22T14:28:47.324615" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
 <var>${resp}</var>
 <arg>demoblaze</arg>
 <arg>/entries</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-10-22T10:20:31.388411" elapsed="0.414361"/>
+<status status="PASS" start="2025-10-22T14:28:46.944461" elapsed="0.380388"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-22T10:20:31.804725" level="INFO">${data} = {'Items': [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage canno...</msg>
+<msg time="2025-10-22T14:28:47.325896" level="INFO">${data} = {'Items': [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage canno...</msg>
 <var>${data}</var>
 <arg>$resp.json()</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-22T10:20:31.803448" elapsed="0.001550"/>
+<status status="PASS" start="2025-10-22T14:28:47.325205" elapsed="0.000868"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-10-22T10:20:31.806128" level="INFO">${items} = [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expan...</msg>
+<msg time="2025-10-22T14:28:47.326784" level="INFO">${items} = [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expan...</msg>
 <var>${items}</var>
 <arg>${data}</arg>
 <arg>Items</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-10-22T10:20:31.805371" elapsed="0.001013"/>
+<status status="PASS" start="2025-10-22T14:28:47.326336" elapsed="0.000621"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-22T10:20:31.807499" level="INFO">${titles} = ['Samsung galaxy s6', 'Nokia lumia 1520', 'Nexus 6', 'Samsung galaxy s7', 'Iphone 6 32gb', 'Sony xperia z5', 'HTC One M9', 'Sony vaio i5', 'Sony vaio i7']</msg>
+<msg time="2025-10-22T14:28:47.327813" level="INFO">${titles} = ['Samsung galaxy s6', 'Nokia lumia 1520', 'Nexus 6', 'Samsung galaxy s7', 'Iphone 6 32gb', 'Sony xperia z5', 'HTC One M9', 'Sony vaio i5', 'Sony vaio i7']</msg>
 <var>${titles}</var>
 <arg>[item['title'].strip() for item in $items]</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-22T10:20:31.806740" elapsed="0.000966"/>
+<status status="PASS" start="2025-10-22T14:28:47.327223" elapsed="0.000760"/>
 </kw>
 <return>
 <value>${titles}</value>
-<status status="PASS" start="2025-10-22T10:20:31.807925" elapsed="0.000257"/>
+<status status="PASS" start="2025-10-22T14:28:47.328166" elapsed="0.000216"/>
 </return>
-<msg time="2025-10-22T10:20:31.808576" level="INFO">${titles} = ['Samsung galaxy s6', 'Nokia lumia 1520', 'Nexus 6', 'Samsung galaxy s7', 'Iphone 6 32gb', 'Sony xperia z5', 'HTC One M9', 'Sony vaio i5', 'Sony vaio i7']</msg>
+<msg time="2025-10-22T14:28:47.328727" level="INFO">${titles} = ['Samsung galaxy s6', 'Nokia lumia 1520', 'Nexus 6', 'Samsung galaxy s7', 'Iphone 6 32gb', 'Sony xperia z5', 'HTC One M9', 'Sony vaio i5', 'Sony vaio i7']</msg>
 <var>${titles}</var>
-<status status="PASS" start="2025-10-22T10:20:31.383700" elapsed="0.425046"/>
+<status status="PASS" start="2025-10-22T14:28:46.939270" elapsed="0.389602"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-10-22T10:20:31.810157" level="INFO">Opening browser 'chrome' to base url 'https://www.demoblaze.com/'.</msg>
+<msg time="2025-10-22T14:28:47.330147" level="INFO">Opening browser 'chrome' to base url 'https://www.demoblaze.com/'.</msg>
 <arg>https://www.demoblaze.com/</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-10-22T10:20:31.809560" elapsed="2.039290"/>
+<status status="PASS" start="2025-10-22T14:28:47.329617" elapsed="2.162122"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-10-22T10:20:33.849409" elapsed="0.030120"/>
+<status status="PASS" start="2025-10-22T14:28:49.492291" elapsed="0.031091"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-22T10:20:33.880755" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Laptops']'.</msg>
+<msg time="2025-10-22T14:28:49.524558" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Laptops']'.</msg>
 <arg>xpath=//a[normalize-space(.)='Laptops']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-22T10:20:33.880153" elapsed="0.106010"/>
+<status status="PASS" start="2025-10-22T14:28:49.523944" elapsed="0.148612"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Checking: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:33.987402" elapsed="0.000837"/>
+<status status="PASS" start="2025-10-22T14:28:49.673860" elapsed="0.000858"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T10:20:33.989840" level="FAIL">'samsung galaxy s6' does not contain 'vaio'</msg>
+<msg time="2025-10-22T14:28:49.676679" level="FAIL">'samsung galaxy s6' does not contain 'vaio'</msg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T10:20:33.988896" elapsed="0.001223">'samsung galaxy s6' does not contain 'vaio'</status>
+<status status="FAIL" start="2025-10-22T14:28:49.675670" elapsed="0.001368">'samsung galaxy s6' does not contain 'vaio'</status>
 </kw>
-<msg time="2025-10-22T10:20:33.990365" level="INFO">${is_laptop} = False</msg>
+<msg time="2025-10-22T14:28:49.677283" level="INFO">${is_laptop} = False</msg>
 <var>${is_laptop}</var>
 <arg>Should Contain</arg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T10:20:33.988553" elapsed="0.001928"/>
+<status status="PASS" start="2025-10-22T14:28:49.675241" elapsed="0.002126"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_laptop}">
@@ -108,41 +108,41 @@
 <arg>xpath=//a[normalize-space(.)='${title}']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:33.991058" elapsed="0.000130"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.677829" elapsed="0.000105"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Found laptop: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:33.991379" elapsed="0.000085"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.678086" elapsed="0.000074"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T10:20:33.990739" elapsed="0.000799"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.677559" elapsed="0.000673"/>
 </branch>
-<status status="PASS" start="2025-10-22T10:20:33.990689" elapsed="0.000941"/>
+<status status="PASS" start="2025-10-22T14:28:49.677510" elapsed="0.000814"/>
 </if>
 <var name="${title}">Samsung galaxy s6</var>
-<status status="PASS" start="2025-10-22T10:20:33.987157" elapsed="0.004504"/>
+<status status="PASS" start="2025-10-22T14:28:49.673573" elapsed="0.004784"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Checking: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:33.992008" elapsed="0.000362"/>
+<status status="PASS" start="2025-10-22T14:28:49.678737" elapsed="0.000412"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T10:20:33.993688" level="FAIL">'nokia lumia 1520' does not contain 'vaio'</msg>
+<msg time="2025-10-22T14:28:49.680429" level="FAIL">'nokia lumia 1520' does not contain 'vaio'</msg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T10:20:33.992957" elapsed="0.000930">'nokia lumia 1520' does not contain 'vaio'</status>
+<status status="FAIL" start="2025-10-22T14:28:49.679628" elapsed="0.001107">'nokia lumia 1520' does not contain 'vaio'</status>
 </kw>
-<msg time="2025-10-22T10:20:33.994094" level="INFO">${is_laptop} = False</msg>
+<msg time="2025-10-22T14:28:49.681002" level="INFO">${is_laptop} = False</msg>
 <var>${is_laptop}</var>
 <arg>Should Contain</arg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T10:20:33.992635" elapsed="0.001587"/>
+<status status="PASS" start="2025-10-22T14:28:49.679386" elapsed="0.001752"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_laptop}">
@@ -150,41 +150,41 @@
 <arg>xpath=//a[normalize-space(.)='${title}']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:33.994644" elapsed="0.000088"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.681708" elapsed="0.000118"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Found laptop: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:33.994901" elapsed="0.000080"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.682044" elapsed="0.000113"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T10:20:33.994426" elapsed="0.000627"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.681427" elapsed="0.000869"/>
 </branch>
-<status status="PASS" start="2025-10-22T10:20:33.994397" elapsed="0.000735"/>
+<status status="PASS" start="2025-10-22T14:28:49.681389" elapsed="0.001023"/>
 </if>
 <var name="${title}">Nokia lumia 1520</var>
-<status status="PASS" start="2025-10-22T10:20:33.991872" elapsed="0.003288"/>
+<status status="PASS" start="2025-10-22T14:28:49.678593" elapsed="0.003864"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Checking: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:33.995541" elapsed="0.000393"/>
+<status status="PASS" start="2025-10-22T14:28:49.682943" elapsed="0.000349"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T10:20:33.997165" level="FAIL">'nexus 6' does not contain 'vaio'</msg>
+<msg time="2025-10-22T14:28:49.685213" level="FAIL">'nexus 6' does not contain 'vaio'</msg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T10:20:33.996470" elapsed="0.000892">'nexus 6' does not contain 'vaio'</status>
+<status status="FAIL" start="2025-10-22T14:28:49.683937" elapsed="0.001530">'nexus 6' does not contain 'vaio'</status>
 </kw>
-<msg time="2025-10-22T10:20:33.997571" level="INFO">${is_laptop} = False</msg>
+<msg time="2025-10-22T14:28:49.685842" level="INFO">${is_laptop} = False</msg>
 <var>${is_laptop}</var>
 <arg>Should Contain</arg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T10:20:33.996184" elapsed="0.001485"/>
+<status status="PASS" start="2025-10-22T14:28:49.683543" elapsed="0.002473"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_laptop}">
@@ -192,41 +192,41 @@
 <arg>xpath=//a[normalize-space(.)='${title}']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:33.998119" elapsed="0.000127"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.686634" elapsed="0.000154"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Found laptop: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:33.998462" elapsed="0.000123"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.687023" elapsed="0.000123"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T10:20:33.997849" elapsed="0.000854"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.686257" elapsed="0.000991"/>
 </branch>
-<status status="PASS" start="2025-10-22T10:20:33.997814" elapsed="0.001009"/>
+<status status="PASS" start="2025-10-22T14:28:49.686217" elapsed="0.001115"/>
 </if>
 <var name="${title}">Nexus 6</var>
-<status status="PASS" start="2025-10-22T10:20:33.995357" elapsed="0.003508"/>
+<status status="PASS" start="2025-10-22T14:28:49.682791" elapsed="0.004570"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Checking: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:33.999545" elapsed="0.000461"/>
+<status status="PASS" start="2025-10-22T14:28:49.687709" elapsed="0.000434"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T10:20:34.001753" level="FAIL">'samsung galaxy s7' does not contain 'vaio'</msg>
+<msg time="2025-10-22T14:28:49.689801" level="FAIL">'samsung galaxy s7' does not contain 'vaio'</msg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T10:20:34.000495" elapsed="0.001435">'samsung galaxy s7' does not contain 'vaio'</status>
+<status status="FAIL" start="2025-10-22T14:28:49.688693" elapsed="0.001315">'samsung galaxy s7' does not contain 'vaio'</status>
 </kw>
-<msg time="2025-10-22T10:20:34.002114" level="INFO">${is_laptop} = False</msg>
+<msg time="2025-10-22T14:28:49.690209" level="INFO">${is_laptop} = False</msg>
 <var>${is_laptop}</var>
 <arg>Should Contain</arg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.000232" elapsed="0.001960"/>
+<status status="PASS" start="2025-10-22T14:28:49.688420" elapsed="0.001867"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_laptop}">
@@ -234,41 +234,41 @@
 <arg>xpath=//a[normalize-space(.)='${title}']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:34.002658" elapsed="0.000089"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.690619" elapsed="0.000079"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Found laptop: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:34.002895" elapsed="0.000077"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.690834" elapsed="0.000072"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T10:20:34.002378" elapsed="0.000673"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.690417" elapsed="0.000564"/>
 </branch>
-<status status="PASS" start="2025-10-22T10:20:34.002343" elapsed="0.000785"/>
+<status status="PASS" start="2025-10-22T14:28:49.690391" elapsed="0.000674"/>
 </if>
 <var name="${title}">Samsung galaxy s7</var>
-<status status="PASS" start="2025-10-22T10:20:33.999316" elapsed="0.003839"/>
+<status status="PASS" start="2025-10-22T14:28:49.687570" elapsed="0.003521"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Checking: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.003517" elapsed="0.000496"/>
+<status status="PASS" start="2025-10-22T14:28:49.691419" elapsed="0.000365"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T10:20:34.005295" level="FAIL">'iphone 6 32gb' does not contain 'vaio'</msg>
+<msg time="2025-10-22T14:28:49.693189" level="FAIL">'iphone 6 32gb' does not contain 'vaio'</msg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T10:20:34.004581" elapsed="0.000947">'iphone 6 32gb' does not contain 'vaio'</status>
+<status status="FAIL" start="2025-10-22T14:28:49.692359" elapsed="0.001022">'iphone 6 32gb' does not contain 'vaio'</status>
 </kw>
-<msg time="2025-10-22T10:20:34.005941" level="INFO">${is_laptop} = False</msg>
+<msg time="2025-10-22T14:28:49.693775" level="INFO">${is_laptop} = False</msg>
 <var>${is_laptop}</var>
 <arg>Should Contain</arg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.004279" elapsed="0.001794"/>
+<status status="PASS" start="2025-10-22T14:28:49.692061" elapsed="0.001825"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_laptop}">
@@ -276,41 +276,41 @@
 <arg>xpath=//a[normalize-space(.)='${title}']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:34.006683" elapsed="0.000127"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.694354" elapsed="0.000133"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Found laptop: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:34.006997" elapsed="0.000082"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.694735" elapsed="0.000134"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T10:20:34.006369" elapsed="0.000815"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.694076" elapsed="0.000971"/>
 </branch>
-<status status="PASS" start="2025-10-22T10:20:34.006327" elapsed="0.000941"/>
+<status status="PASS" start="2025-10-22T14:28:49.694044" elapsed="0.001127"/>
 </if>
 <var name="${title}">Iphone 6 32gb</var>
-<status status="PASS" start="2025-10-22T10:20:34.003344" elapsed="0.003957"/>
+<status status="PASS" start="2025-10-22T14:28:49.691283" elapsed="0.003937"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Checking: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.007883" elapsed="0.000461"/>
+<status status="PASS" start="2025-10-22T14:28:49.695670" elapsed="0.000491"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T10:20:34.009466" level="FAIL">'sony xperia z5' does not contain 'vaio'</msg>
+<msg time="2025-10-22T14:28:49.697575" level="FAIL">'sony xperia z5' does not contain 'vaio'</msg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T10:20:34.008867" elapsed="0.000752">'sony xperia z5' does not contain 'vaio'</status>
+<status status="FAIL" start="2025-10-22T14:28:49.696736" elapsed="0.001035">'sony xperia z5' does not contain 'vaio'</status>
 </kw>
-<msg time="2025-10-22T10:20:34.009765" level="INFO">${is_laptop} = False</msg>
+<msg time="2025-10-22T14:28:49.698023" level="INFO">${is_laptop} = False</msg>
 <var>${is_laptop}</var>
 <arg>Should Contain</arg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.008578" elapsed="0.001264"/>
+<status status="PASS" start="2025-10-22T14:28:49.696452" elapsed="0.001687"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_laptop}">
@@ -318,41 +318,41 @@
 <arg>xpath=//a[normalize-space(.)='${title}']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:34.010141" elapsed="0.000076"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.698545" elapsed="0.000126"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Found laptop: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:34.010355" elapsed="0.000074"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.698838" elapsed="0.000079"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T10:20:34.009962" elapsed="0.000539"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.698274" elapsed="0.000717"/>
 </branch>
-<status status="PASS" start="2025-10-22T10:20:34.009939" elapsed="0.000640"/>
+<status status="PASS" start="2025-10-22T14:28:49.698250" elapsed="0.000817"/>
 </if>
 <var name="${title}">Sony xperia z5</var>
-<status status="PASS" start="2025-10-22T10:20:34.007623" elapsed="0.002984"/>
+<status status="PASS" start="2025-10-22T14:28:49.695487" elapsed="0.003606"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Checking: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.010965" elapsed="0.000394"/>
+<status status="PASS" start="2025-10-22T14:28:49.699451" elapsed="0.000398"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T10:20:34.012595" level="FAIL">'htc one m9' does not contain 'vaio'</msg>
+<msg time="2025-10-22T14:28:49.701585" level="FAIL">'htc one m9' does not contain 'vaio'</msg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T10:20:34.011914" elapsed="0.000848">'htc one m9' does not contain 'vaio'</status>
+<status status="FAIL" start="2025-10-22T14:28:49.700591" elapsed="0.001231">'htc one m9' does not contain 'vaio'</status>
 </kw>
-<msg time="2025-10-22T10:20:34.012922" level="INFO">${is_laptop} = False</msg>
+<msg time="2025-10-22T14:28:49.702068" level="INFO">${is_laptop} = False</msg>
 <var>${is_laptop}</var>
 <arg>Should Contain</arg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.011592" elapsed="0.001397"/>
+<status status="PASS" start="2025-10-22T14:28:49.700141" elapsed="0.002025"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_laptop}">
@@ -360,40 +360,40 @@
 <arg>xpath=//a[normalize-space(.)='${title}']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:34.013396" elapsed="0.000126"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.702708" elapsed="0.000138"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Found laptop: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T10:20:34.013730" elapsed="0.000094"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.703059" elapsed="0.000166"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T10:20:34.013130" elapsed="0.000810"/>
+<status status="NOT RUN" start="2025-10-22T14:28:49.702377" elapsed="0.000999"/>
 </branch>
-<status status="PASS" start="2025-10-22T10:20:34.013103" elapsed="0.000962"/>
+<status status="PASS" start="2025-10-22T14:28:49.702326" elapsed="0.001165"/>
 </if>
 <var name="${title}">HTC One M9</var>
-<status status="PASS" start="2025-10-22T10:20:34.010804" elapsed="0.003306"/>
+<status status="PASS" start="2025-10-22T14:28:49.699278" elapsed="0.004254"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Checking: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.014662" elapsed="0.000671"/>
+<status status="PASS" start="2025-10-22T14:28:49.704005" elapsed="0.000577"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.015977" elapsed="0.000944"/>
+<status status="PASS" start="2025-10-22T14:28:49.705507" elapsed="0.000849"/>
 </kw>
-<msg time="2025-10-22T10:20:34.017142" level="INFO">${is_laptop} = True</msg>
+<msg time="2025-10-22T14:28:49.706596" level="INFO">${is_laptop} = True</msg>
 <var>${is_laptop}</var>
 <arg>Should Contain</arg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.015606" elapsed="0.001632"/>
+<status status="PASS" start="2025-10-22T14:28:49.704958" elapsed="0.001823"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_laptop}">
@@ -401,40 +401,40 @@
 <arg>xpath=//a[normalize-space(.)='${title}']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.017597" elapsed="0.231286"/>
+<status status="PASS" start="2025-10-22T14:28:49.707145" elapsed="0.242550"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Found laptop: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.249234" elapsed="0.000489"/>
+<status status="PASS" start="2025-10-22T14:28:49.949950" elapsed="0.000421"/>
 </kw>
-<status status="PASS" start="2025-10-22T10:20:34.017369" elapsed="0.232511"/>
+<status status="PASS" start="2025-10-22T14:28:49.706934" elapsed="0.243617"/>
 </branch>
-<status status="PASS" start="2025-10-22T10:20:34.017343" elapsed="0.232658"/>
+<status status="PASS" start="2025-10-22T14:28:49.706908" elapsed="0.243742"/>
 </if>
 <var name="${title}">Sony vaio i5</var>
-<status status="PASS" start="2025-10-22T10:20:34.014406" elapsed="0.235626"/>
+<status status="PASS" start="2025-10-22T14:28:49.703796" elapsed="0.246885"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Checking: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.250469" elapsed="0.000541"/>
+<status status="PASS" start="2025-10-22T14:28:49.951050" elapsed="0.000323"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.251549" elapsed="0.000538"/>
+<status status="PASS" start="2025-10-22T14:28:49.952056" elapsed="0.000680"/>
 </kw>
-<msg time="2025-10-22T10:20:34.252240" level="INFO">${is_laptop} = True</msg>
+<msg time="2025-10-22T14:28:49.952966" level="INFO">${is_laptop} = True</msg>
 <var>${is_laptop}</var>
 <arg>Should Contain</arg>
 <arg>${title.lower()}</arg>
 <arg>vaio</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.251277" elapsed="0.001043"/>
+<status status="PASS" start="2025-10-22T14:28:49.951707" elapsed="0.001385"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_laptop}">
@@ -442,31 +442,31 @@
 <arg>xpath=//a[normalize-space(.)='${title}']</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.252625" elapsed="0.018643"/>
+<status status="PASS" start="2025-10-22T14:28:49.953571" elapsed="0.019613"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Found laptop: ${title}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.271745" elapsed="0.000621"/>
+<status status="PASS" start="2025-10-22T14:28:49.973479" elapsed="0.000553"/>
 </kw>
-<status status="PASS" start="2025-10-22T10:20:34.252434" elapsed="0.020189"/>
+<status status="PASS" start="2025-10-22T14:28:49.953291" elapsed="0.021065"/>
 </branch>
-<status status="PASS" start="2025-10-22T10:20:34.252412" elapsed="0.020362"/>
+<status status="PASS" start="2025-10-22T14:28:49.953257" elapsed="0.021278"/>
 </if>
 <var name="${title}">Sony vaio i7</var>
-<status status="PASS" start="2025-10-22T10:20:34.250261" elapsed="0.022558"/>
+<status status="PASS" start="2025-10-22T14:28:49.950885" elapsed="0.023698"/>
 </iter>
 <var>${title}</var>
 <value>@{titles}</value>
-<status status="PASS" start="2025-10-22T10:20:33.986633" elapsed="0.286350"/>
+<status status="PASS" start="2025-10-22T14:28:49.673070" elapsed="0.301822"/>
 </for>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-10-22T10:20:34.273620" elapsed="2.276051"/>
+<status status="PASS" start="2025-10-22T14:28:49.975556" elapsed="2.250970"/>
 </kw>
-<status status="PASS" start="2025-10-22T10:20:31.381850" elapsed="5.169380"/>
+<status status="PASS" start="2025-10-22T14:28:46.938458" elapsed="5.288936"/>
 </test>
-<status status="PASS" start="2025-10-22T10:20:30.972127" elapsed="5.581886"/>
+<status status="PASS" start="2025-10-22T14:28:46.582445" elapsed="5.646741"/>
 </suite>
 <statistics>
 <total>
@@ -479,6 +479,6 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2025-10-22T10:20:30.945084" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api_UI_01.robot' on line 19: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-22T14:28:46.557230" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api_UI_01.robot' on line 30: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>

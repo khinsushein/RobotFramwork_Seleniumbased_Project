@@ -9,6 +9,17 @@ ${TIMEOUT}     10
 ${BROWSER}     chrome
 
 *** Keywords ***
+
+Open Chrome With CI Options
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --disable-gpu
+    Call Method    ${options}    add_argument    --user-data-dir=/tmp/chrome-user-data
+    Create Webdriver    Chrome    chrome_options=${options}
+    Go To    https://www.demoblaze.com/
+
 Get Phone Titles From API
     Create Session    demoblaze    ${API_BASE}
     ${resp}=    GET On Session    demoblaze    /entries    expected_status=200
@@ -30,10 +41,11 @@ Collect All UI Titles In Phones
     ${seen}=    Create List
     ${stall}=   Set Variable    0
     WHILE    ${stall} < 2
-        ${els}=    Get WebElements    css=#tbodyid .card-title a
         ${page}=   Create List
+        # Fetch elements fresh each loop iteration
+        ${els}=    Get WebElements    css=#tbodyid .card-title a
         FOR    ${el}    IN    @{els}
-            ${t}=    Get Text    ${el}
+            ${t}=      Get Text    ${el}
             Append To List    ${page}    ${t.strip()}
         END
         ${before}=    Get Length    ${seen}
@@ -42,8 +54,11 @@ Collect All UI Titles In Phones
         ${stall}=     Set Variable    ${${after} <= ${before} and ${stall}+1 or 0}
         ${has_next}=  Run Keyword And Return Status    Page Should Contain Element    id=next2
         Run Keyword If    not ${has_next}    Exit For Loop
+        ${is_enabled}=    Run Keyword And Return Status    Element Should Be Enabled    id=next2
+        Run Keyword If    not ${is_enabled}    Exit For Loop
         Click Element    id=next2
         Wait Until Page Contains Element    css=#tbodyid .card-title a    ${TIMEOUT}
+        # Do NOT use previously fetched elements after clicking "Next"
     END
     [Return]    ${seen}
 
