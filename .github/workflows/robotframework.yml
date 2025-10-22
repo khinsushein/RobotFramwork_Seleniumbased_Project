@@ -20,7 +20,15 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           pip install -r requirements.txt
-      - name: Run Robot Framework tests
+      - name: Run Robot Framework Selenium based tests
         run: |
           source .venv/bin/activate
           robot tests/
+      - name: Upload Robot Framework results
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-results
+          path: |
+            output.xml
+            log.html
+            report.html
