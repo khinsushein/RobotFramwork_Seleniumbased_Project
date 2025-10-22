@@ -10,6 +10,17 @@ ${TIMEOUT}     10
 ${BROWSER}     chrome
 
 *** Keywords ***
+
+Open Chrome With CI Options
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --disable-gpu
+    Call Method    ${options}    add_argument    --user-data-dir=/tmp/chrome-user-data
+    Create Webdriver    Chrome    chrome_options=${options}
+    Go To    https://www.demoblaze.com/
+
 Get Product Titles From API
     Create Session    demoblaze    https://api.demoblaze.com
     ${resp}=    GET On Session    demoblaze    /entries    expected_status=200
@@ -19,6 +30,7 @@ Get Product Titles From API
     [Return]    ${titles}
 
 *** Test Cases ***
+
 Verify Products From API Are Shown In UI
     ${titles}=    Get Product Titles From API
     Open Browser    https://www.demoblaze.com/    chrome

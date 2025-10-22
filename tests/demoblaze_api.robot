@@ -2,12 +2,21 @@
 Library    RequestsLibrary
 Library    String
 Library    Collections
+Library    SeleniumLibrary
 
 *** Variables ***
 ${API_BASE}     https://api.demoblaze.com
 ${TIMEOUT}      15
 
 *** Keywords ***
+Open Chrome With CI Options
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --disable-gpu
+    Open Browser    https://api.demoblaze.com    Chrome    options=${options}
+    Go To    https://api.demoblaze.com
 Make API Session
     &{headers}=    Create Dictionary    Content-Type=application/json
     Create Session    demoblaze    ${API_BASE}    headers=${headers}    timeout=${TIMEOUT}

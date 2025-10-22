@@ -8,6 +8,15 @@ ${BROWSER}    chrome
 ${TIMEOUT}    10
 
 *** Keywords ***
+Open Chrome With CI Options
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --disable-gpu
+    Call Method    ${options}    add_argument    --user-data-dir=/tmp/chrome-user-data
+    Create Webdriver    Chrome    chrome_options=${options}
+    Go To    https://www.demoblaze.com/
 Generate Unique Credentials
     ${rand}=        Generate Random String    8    [LOWER]
     ${username}=    Set Variable    testuser_${rand}
