@@ -17,8 +17,7 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    Call Method    ${options}    add_argument    --user-data-dir=/tmp/chrome-user-data
-    Create Webdriver    Chrome    chrome_options=${options}
+    Create Webdriver    Chrome    options=${options}
     Go To    https://www.demoblaze.com/
 
 Get Product Titles From API
@@ -33,7 +32,7 @@ Get Product Titles From API
 
 Verify Products From API Are Shown In UI
     ${titles}=    Get Product Titles From API
-    Open Browser    https://www.demoblaze.com/    chrome
+    Open Chrome With CI Options
     Maximize Browser Window
     # Go to the Laptops category (for notebook products)
     Click Element    xpath=//a[normalize-space(.)='Laptops']

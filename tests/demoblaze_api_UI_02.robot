@@ -17,7 +17,7 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
     Call Method    ${options}    add_argument    --user-data-dir=/tmp/chrome-user-data
-    Create Webdriver    Chrome    chrome_options=${options}
+    Create Webdriver    Chrome    options=${options}
     Go To    https://www.demoblaze.com/
 
 Get Phone Titles From API
@@ -54,7 +54,9 @@ Collect All UI Titles In Phones
         ${stall}=     Set Variable    ${${after} <= ${before} and ${stall}+1 or 0}
         ${has_next}=  Run Keyword And Return Status    Page Should Contain Element    id=next2
         Run Keyword If    not ${has_next}    Exit For Loop
-        ${is_enabled}=    Run Keyword And Return Status    Element Should Be Enabled    id=next2
+        ${is_visible}=   Run Keyword And Return Status    Element Should Be Visible    id=next2
+        Run Keyword If    not ${is_visible}    Exit For Loop
+        ${is_enabled}=   Run Keyword And Return Status    Element Should Be Enabled    id=next2
         Run Keyword If    not ${is_enabled}    Exit For Loop
         Click Element    id=next2
         Wait Until Page Contains Element    css=#tbodyid .card-title a    ${TIMEOUT}
