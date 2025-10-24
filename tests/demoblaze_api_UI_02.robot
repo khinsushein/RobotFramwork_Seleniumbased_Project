@@ -16,8 +16,7 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    Call Method    ${options}    add_argument    --user-data-dir=/tmp/chrome-user-data
-    Create Webdriver    Chrome    options=${options}
+    Create WebDriver    Chrome    options=${options}
     Go To    https://www.demoblaze.com/
 
 Get Phone Titles From API
