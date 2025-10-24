@@ -57,7 +57,12 @@ Collect All UI Titles In Phones
         Run Keyword If    not ${is_visible}    Exit For Loop
         ${is_enabled}=   Run Keyword And Return Status    Element Should Be Enabled    id=next2
         Run Keyword If    not ${is_enabled}    Exit For Loop
+        Scroll Element Into View    id=next2
+        Sleep    2s
+        Wait Until Element Is Visible    id=next2    ${TIMEOUT}
+        Wait Until Element Is Enabled    id=next2    ${TIMEOUT}
         Click Element    id=next2
+        Sleep    1s
         Wait Until Page Contains Element    css=#tbodyid .card-title a    ${TIMEOUT}
         # Do NOT use previously fetched elements after clicking "Next"
     END
