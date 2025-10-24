@@ -14,8 +14,7 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    Call Method    ${options}    add_argument    --user-data-dir=/tmp/chrome-user-data
-    Create Webdriver    Chrome    chrome_options=${options}
+    Create Webdriver    Chrome    options=${options}
     Go To    https://www.demoblaze.com/
 Generate Unique Credentials
     ${rand}=        Generate Random String    8    [LOWER]
@@ -98,12 +97,15 @@ Logout
     # Ensure any open modals are closed before logout
     Run Keyword And Ignore Error    Click Element    css=.modal.show .close
     Wait Until Element Is Not Visible    css=.modal.show    ${TIMEOUT}
+    Wait Until Element Is Visible    xpath=//a[normalize-space(.)='Log out']    ${TIMEOUT}
+    Wait Until Element Is Enabled    xpath=//a[normalize-space(.)='Log out']    ${TIMEOUT}
+    Sleep    1s
     Click Element    xpath=//a[normalize-space(.)='Log out']
     Wait Until Element Is Visible    xpath=//a[normalize-space(.)='Log in']    ${TIMEOUT}
 
 *** Test Cases ***
 End-to-End User Journey
-    Open Browser    ${URL}    ${BROWSER}
+    Open Chrome With CI Options
     Maximize Browser Window
     Set Selenium Timeout    ${TIMEOUT}
 

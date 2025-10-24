@@ -1,472 +1,582 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.1 on win32)" generated="2025-10-22T14:28:46.576771" rpa="false" schemaversion="5">
-<suite id="s1" name="demoblaze api UI 01" source="c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api_UI_01.robot">
-<test id="s1-t1" name="Verify Products From API Are Shown In UI" line="34">
-<kw name="Get Product Titles From API">
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-10-22T14:28:46.940533" level="INFO">Creating Session using : alias=demoblaze, url=https://api.demoblaze.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>demoblaze</arg>
-<arg>https://api.demoblaze.com</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-10-22T14:28:46.940241" elapsed="0.003990"/>
-</kw>
-<kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-10-22T14:28:47.322880" level="INFO">GET Request : url=https://api.demoblaze.com/entries 
- path_url=/entries 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2025-10-22T14:28:47.323399" level="INFO">GET Response : url=https://api.demoblaze.com/entries 
- status=200, reason=OK 
- headers={'content-type': 'application/json', 'vary': 'Accept-Encoding', 'content-encoding': 'gzip', 'x-cloud-trace-context': '7382e4092d03cca3e0d34105bc488de6', 'date': 'Wed, 22 Oct 2025 12:28:47 GMT', 'server': 'Google Frontend', 'Content-Length': '995'} 
- body={"Items":[{"cat":"phone","desc":"The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expanded. ","id":1,"img":"imgs/galaxy_s6.jpg","price":360.0,"title":"Samsung galaxy s6"},{"cat":"phone","desc":"The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM. ","id":2,"img":"imgs/Lumia_1520.jpg","price":820.0,"title":"Nokia lumia 1520"},{"cat":"phone","desc":"The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.","id":3,"img":"imgs/Nexus_6.jpg","price":650.0,"title":"Nexus 6"},{"cat":"phone","desc":"The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage that can be expanded up\n to 200GB via a microSD card.","id":4,"img":"imgs/galaxy_s6.jpg","price":800.0,"title":"Samsung galaxy s7"},{"cat":"phone","desc":"It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concerned, the Apple \niPhone 6 packs a 8-megapixel primary camera on the rear and a \n1.2-megapixel front shooter for selfies.","id":5,"img":"imgs/iphone_6.jpg","price":790.0,"title":"Iphone 6 32gb"},{"cat":"phone","desc":"Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display with a resolution of 1080 \npixels by 1920 pixels at a PPI of 424 pixels per inch.","id":6,"img":"imgs/xperia_z5.jpg","price":320.0,"title":"Sony xperia z5"},{"cat":"phone","desc":"The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone packs 32GB of internal\n storage that can be expanded up to 128GB via a microSD card. ","id":7,"img":"imgs/HTC_M9.jpg","price":700.0,"title":"HTC One M9"},{"cat":"notebook","desc":"Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook to Apple's 13-inch \nMacBook Pro. And in a lot of ways this notebook is better, thanks to a \nlighter weight.","id":8,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i5"},{"cat":"notebook","desc":"REVIEW\n \nSony is so confident that the VAIO S is a superior \nultraportable laptop that the company proudly compares the notebook to \nApple's 13-inch MacBook Pro. And in a lot of ways this notebook is \nbetter, thanks to a lighter weight, higher-resolution display, more \nstorage space, and a Blu-ray drive. ","id":9,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i7\n"}],"LastEvaluatedKey":{"id":"9"}}
- 
- </msg>
-<msg time="2025-10-22T14:28:47.323720" level="INFO">c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.demoblaze.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-10-22T14:28:47.324615" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<var>${resp}</var>
-<arg>demoblaze</arg>
-<arg>/entries</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-10-22T14:28:46.944461" elapsed="0.380388"/>
-</kw>
+<robot generator="Robot 7.3.2 (Python 3.13.1 on win32)" generated="2025-10-24T11:23:20.197470" rpa="false" schemaversion="5">
+<suite id="s1" name="Demoblaze E2E" source="c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_e2e.robot">
+<test id="s1-t1" name="End-to-End User Journey" line="107">
+<kw name="Open Chrome With CI Options">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-22T14:28:47.325896" level="INFO">${data} = {'Items': [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage canno...</msg>
-<var>${data}</var>
-<arg>$resp.json()</arg>
+<msg time="2025-10-24T11:23:20.550030" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002816C55B230&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-22T14:28:47.325205" elapsed="0.000868"/>
+<status status="PASS" start="2025-10-24T11:23:20.549643" elapsed="0.003726"/>
 </kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-10-22T14:28:47.326784" level="INFO">${items} = [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expan...</msg>
-<var>${items}</var>
-<arg>${data}</arg>
-<arg>Items</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-10-22T14:28:47.326336" elapsed="0.000621"/>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-24T11:23:20.553771" elapsed="0.000359"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-22T14:28:47.327813" level="INFO">${titles} = ['Samsung galaxy s6', 'Nokia lumia 1520', 'Nexus 6', 'Samsung galaxy s7', 'Iphone 6 32gb', 'Sony xperia z5', 'HTC One M9', 'Sony vaio i5', 'Sony vaio i7']</msg>
-<var>${titles}</var>
-<arg>[item['title'].strip() for item in $items]</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-22T14:28:47.327223" elapsed="0.000760"/>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-24T11:23:20.554481" elapsed="0.000497"/>
 </kw>
-<return>
-<value>${titles}</value>
-<status status="PASS" start="2025-10-22T14:28:47.328166" elapsed="0.000216"/>
-</return>
-<msg time="2025-10-22T14:28:47.328727" level="INFO">${titles} = ['Samsung galaxy s6', 'Nokia lumia 1520', 'Nexus 6', 'Samsung galaxy s7', 'Iphone 6 32gb', 'Sony xperia z5', 'HTC One M9', 'Sony vaio i5', 'Sony vaio i7']</msg>
-<var>${titles}</var>
-<status status="PASS" start="2025-10-22T14:28:46.939270" elapsed="0.389602"/>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-24T11:23:20.555136" elapsed="0.000189"/>
 </kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-10-22T14:28:47.330147" level="INFO">Opening browser 'chrome' to base url 'https://www.demoblaze.com/'.</msg>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-24T11:23:20.555452" elapsed="0.000164"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:20.555968" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-10-24T11:23:20.555743" elapsed="1.732209"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:22.288429" level="INFO">Opening url 'https://www.demoblaze.com/'</msg>
 <arg>https://www.demoblaze.com/</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-10-22T14:28:47.329617" elapsed="2.162122"/>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-10-24T11:23:22.288218" elapsed="0.760401"/>
+</kw>
+<status status="PASS" start="2025-10-24T11:23:20.548737" elapsed="2.500163"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.492291" elapsed="0.031091"/>
+<status status="PASS" start="2025-10-24T11:23:23.049589" elapsed="0.023772"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.073837" elapsed="0.001507"/>
+</kw>
+<kw name="Generate Unique Credentials">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-10-24T11:23:23.076542" level="INFO">${rand} = fguhcbmv</msg>
+<var>${rand}</var>
+<arg>8</arg>
+<arg>[LOWER]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.076223" elapsed="0.000430"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T11:23:23.077029" level="INFO">${username} = testuser_fguhcbmv</msg>
+<var>${username}</var>
+<arg>testuser_${rand}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.076799" elapsed="0.000325"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-24T11:23:23.077581" level="INFO">${password} = testpass_fguhcbmv</msg>
+<var>${password}</var>
+<arg>testpass_${rand}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.077269" elapsed="0.000413"/>
+</kw>
+<return>
+<value>${username}</value>
+<value>${password}</value>
+<status status="PASS" start="2025-10-24T11:23:23.077786" elapsed="0.000132"/>
+</return>
+<msg time="2025-10-24T11:23:23.078152" level="INFO">${u} = testuser_fguhcbmv</msg>
+<msg time="2025-10-24T11:23:23.078262" level="INFO">${p} = testpass_fguhcbmv</msg>
+<var>${u}</var>
+<var>${p}</var>
+<status status="PASS" start="2025-10-24T11:23:23.075895" elapsed="0.002438"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Using credentials: ${u} / ${p}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.079318" elapsed="0.000681"/>
+</kw>
+<kw name="Sign Up">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[normalize-space(.)='Sign up']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.081013" elapsed="0.043309"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-22T14:28:49.524558" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Laptops']'.</msg>
+<msg time="2025-10-24T11:23:23.124878" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Sign up']'.</msg>
+<arg>xpath=//a[normalize-space(.)='Sign up']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.124597" elapsed="0.138766"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=signInModal</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.263632" elapsed="0.243292"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=sign-username</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.507186" elapsed="0.021696"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=sign-password</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.529297" elapsed="0.017735"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>id=sign-username</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.547319" elapsed="0.031656"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:23.579536" level="INFO">Typing text 'testuser_fguhcbmv' into text field 'id=sign-username'.</msg>
+<arg>id=sign-username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.579229" elapsed="0.096525"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>id=sign-password</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.676054" elapsed="0.053892"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:23.730516" level="INFO">Typing text 'testpass_fguhcbmv' into text field 'id=sign-password'.</msg>
+<arg>id=sign-password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.730204" elapsed="0.110727"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:23.841525" level="INFO">Clicking button 'xpath=//div[@id='signInModal']//button[normalize-space(.)='Sign up']'.</msg>
+<arg>xpath=//div[@id='signInModal']//button[normalize-space(.)='Sign up']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.841231" elapsed="0.086365"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:23.928957" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:10</msg>
+<msg time="2025-10-24T11:23:24.436482" level="INFO">${msg} = Sign up successful.</msg>
+<var>${msg}</var>
+<arg>action=ACCEPT</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-10-24T11:23:23.928125" elapsed="0.508600"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T11:23:24.437458" level="INFO">Sign-up alert: Sign up successful.</msg>
+<arg>Sign-up alert: ${msg}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.437032" elapsed="0.000586"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Run Keywords" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>id=signInModal</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.438426" elapsed="0.224038"/>
+</kw>
+<arg>Wait Until Element Is Not Visible</arg>
+<arg>id=signInModal</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.438261" elapsed="0.224390"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:24.663294" level="INFO">Clicking element 'css=#signInModal .close'.</msg>
+<msg time="2025-10-24T11:23:24.772938" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-39.png"&gt;&lt;img src="selenium-screenshot-39.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-10-24T11:23:24.773236" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=141.0.7390.109); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6ee29e8e5+80021]
+	GetHandleVerifier [0x0x7ff6ee29e940+80112]
+	(No symbol) [0x0x7ff6ee020425]
+	(No symbol) [0x0x7ff6ee079dc3]
+	(No symbol) [0x0x7ff6ee06b7c8]
+	(No symbol) [0x0x7ff6ee0a122a]
+	(No symbol) [0x0x7ff6ee06b056]
+	(No symbol) [0x0x7ff6ee0a1440]
+	(No symbol) [0x0x7ff6ee0c968a]
+	(No symbol) [0x0x7ff6ee0a1003]
+	(No symbol) [0x0x7ff6ee0695d1]
+	(No symbol) [0x0x7ff6ee06a3f3]
+	GetHandleVerifier [0x0x7ff6ee55dc7d+2960429]
+	GetHandleVerifier [0x0x7ff6ee557f3a+2936554]
+	GetHandleVerifier [0x0x7ff6ee578977+3070247]
+	GetHandleVerifier [0x0x7ff6ee2b83ce+185214]
+	GetHandleVerifier [0x0x7ff6ee2bfe1f+216527]
+	GetHandleVerifier [0x0x7ff6ee2a7b24+117460]
+	GetHandleVerifier [0x0x7ff6ee2a7cdf+117903]
+	GetHandleVerifier [0x0x7ff6ee28dbb8+11112]
+	BaseThreadInitThunk [0x0x7ff93daa259d+29]
+	RtlUserThreadStart [0x0x7ff93eb2af78+40]
+</msg>
+<arg>css=#signInModal .close</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-10-24T11:23:24.663076" elapsed="0.114394">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=141.0.7390.109); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6ee29e8e5+80021]
+	GetHandleVerifier [0x0x7ff6ee29e940+80112]
+	(No symbol) [0x0x7ff6ee020425]
+	(No symbol) [0x0x7ff6ee079dc3]
+	(No symbol) [0x0x7ff6ee06b7c8]
+	(No symbol) [0x0x7ff6ee0a122a]
+	(No symbol) [0x0x7ff6ee06b056]
+	(No symbol) [0x0x7ff6ee0a1440]
+	(No symbol) [0x0x7ff6ee0c968a]
+	(No symbol) [0x0x7ff6ee0a1003]
+	(No symbol) [0x0x7ff6ee0695d1]
+	(No symbol) [0x0x7ff6ee06a3f3]
+	GetHandleVerifier [0x0x7ff6ee55dc7d+2960429]
+	GetHandleVerifier [0x0x7ff6ee557f3a+2936554]
+	GetHandleVerifier [0x0x7ff6ee578977+3070247]
+	GetHandleVerifier [0x0x7ff6ee2b83ce+185214]
+	GetHandleVerifier [0x0x7ff6ee2bfe1f+216527]
+	GetHandleVerifier [0x0x7ff6ee2a7b24+117460]
+	GetHandleVerifier [0x0x7ff6ee2a7cdf+117903]
+	GetHandleVerifier [0x0x7ff6ee28dbb8+11112]
+	BaseThreadInitThunk [0x0x7ff93daa259d+29]
+	RtlUserThreadStart [0x0x7ff93eb2af78+40]
+</status>
+</kw>
+<arg>Click Element</arg>
+<arg>css=#signInModal .close</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.662845" elapsed="0.114816"/>
+</kw>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Wait Until Element Is Not Visible</arg>
+<arg>id=signInModal</arg>
+<arg>${TIMEOUT}</arg>
+<arg>AND</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=#signInModal .close</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.438066" elapsed="0.339690"/>
+</kw>
+<arg>3x</arg>
+<arg>1s</arg>
+<arg>Run Keywords</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Wait Until Element Is Not Visible</arg>
+<arg>id=signInModal</arg>
+<arg>${TIMEOUT}</arg>
+<arg>AND</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>css=#signInModal .close</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.437777" elapsed="0.340070"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>Sign up successful.</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.778003" elapsed="0.000273"/>
+</kw>
+<arg>${u}</arg>
+<arg>${p}</arg>
+<status status="PASS" start="2025-10-24T11:23:23.080608" elapsed="1.697785"/>
+</kw>
+<kw name="Login">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[normalize-space(.)='Log in']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.779171" elapsed="0.017505"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:24.797221" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Log in']'.</msg>
+<arg>xpath=//a[normalize-space(.)='Log in']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.796947" elapsed="0.049740"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=logInModal</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:24.846948" elapsed="0.228949"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:25.076433" level="INFO">Typing text 'testuser_fguhcbmv' into text field 'id=loginusername'.</msg>
+<arg>id=loginusername</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:25.076140" elapsed="0.061873"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:25.138598" level="INFO">Typing text 'testpass_fguhcbmv' into text field 'id=loginpassword'.</msg>
+<arg>id=loginpassword</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:25.138279" elapsed="0.064660"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:25.203479" level="INFO">Clicking button 'xpath=//div[@id='logInModal']//button[normalize-space(.)='Log in']'.</msg>
+<arg>xpath=//div[@id='logInModal']//button[normalize-space(.)='Log in']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:25.203205" elapsed="0.065377"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>id=logInModal</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:25.268845" elapsed="0.673392"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=nameofuser</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:25.942649" elapsed="0.451908"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:26.443141" level="INFO">${user} = Welcome testuser_fguhcbmv</msg>
+<var>${user}</var>
+<arg>id=nameofuser</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:26.394809" elapsed="0.048500"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${user}</arg>
+<arg>${username}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-10-24T11:23:26.443500" elapsed="0.000251"/>
+</kw>
+<arg>${u}</arg>
+<arg>${p}</arg>
+<status status="PASS" start="2025-10-24T11:23:24.778796" elapsed="1.665064"/>
+</kw>
+<kw name="Add Product To Cart">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:26.446539" level="INFO">Clicking element 'xpath=//a[@class='navbar-brand' and normalize-space(.)='PRODUCT STORE']'.</msg>
+<arg>xpath=//a[@class='navbar-brand' and normalize-space(.)='PRODUCT STORE']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:26.446260" elapsed="0.398248"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:26.845170" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Laptops']'.</msg>
 <arg>xpath=//a[normalize-space(.)='Laptops']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.523944" elapsed="0.148612"/>
+<status status="PASS" start="2025-10-24T11:23:26.844891" elapsed="0.068648"/>
 </kw>
-<for flavor="IN">
-<iter>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Checking: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.673860" elapsed="0.000858"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T14:28:49.676679" level="FAIL">'samsung galaxy s6' does not contain 'vaio'</msg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T14:28:49.675670" elapsed="0.001368">'samsung galaxy s6' does not contain 'vaio'</status>
-</kw>
-<msg time="2025-10-22T14:28:49.677283" level="INFO">${is_laptop} = False</msg>
-<var>${is_laptop}</var>
-<arg>Should Contain</arg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.675241" elapsed="0.002126"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_laptop}">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[normalize-space(.)='${title}']</arg>
-<arg>10</arg>
+<arg>xpath=//a[normalize-space(.)='${product}']</arg>
+<arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.677829" elapsed="0.000105"/>
+<status status="PASS" start="2025-10-24T11:23:26.913794" elapsed="0.236823"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Found laptop: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.678086" elapsed="0.000074"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:27.151776" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Sony vaio i5']'.</msg>
+<arg>xpath=//a[normalize-space(.)='${product}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:27.151136" elapsed="0.530941"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T14:28:49.677559" elapsed="0.000673"/>
-</branch>
-<status status="PASS" start="2025-10-22T14:28:49.677510" elapsed="0.000814"/>
-</if>
-<var name="${title}">Samsung galaxy s6</var>
-<status status="PASS" start="2025-10-22T14:28:49.673573" elapsed="0.004784"/>
-</iter>
-<iter>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Checking: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.678737" elapsed="0.000412"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T14:28:49.680429" level="FAIL">'nokia lumia 1520' does not contain 'vaio'</msg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T14:28:49.679628" elapsed="0.001107">'nokia lumia 1520' does not contain 'vaio'</status>
-</kw>
-<msg time="2025-10-22T14:28:49.681002" level="INFO">${is_laptop} = False</msg>
-<var>${is_laptop}</var>
-<arg>Should Contain</arg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.679386" elapsed="0.001752"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_laptop}">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[normalize-space(.)='${title}']</arg>
-<arg>10</arg>
+<arg>xpath=//a[normalize-space(.)='Add to cart']</arg>
+<arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.681708" elapsed="0.000118"/>
+<status status="PASS" start="2025-10-24T11:23:27.682323" elapsed="0.471705"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Found laptop: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.682044" elapsed="0.000113"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:28.154887" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Add to cart']'.</msg>
+<arg>xpath=//a[normalize-space(.)='Add to cart']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:28.154454" elapsed="0.080631"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T14:28:49.681427" elapsed="0.000869"/>
-</branch>
-<status status="PASS" start="2025-10-22T14:28:49.681389" elapsed="0.001023"/>
-</if>
-<var name="${title}">Nokia lumia 1520</var>
-<status status="PASS" start="2025-10-22T14:28:49.678593" elapsed="0.003864"/>
-</iter>
-<iter>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Checking: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.682943" elapsed="0.000349"/>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:28.235693" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:10</msg>
+<msg time="2025-10-24T11:23:28.743769" level="INFO">${cart_msg} = Product added.</msg>
+<var>${cart_msg}</var>
+<arg>action=ACCEPT</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-10-24T11:23:28.235349" elapsed="0.508675"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T14:28:49.685213" level="FAIL">'nexus 6' does not contain 'vaio'</msg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T14:28:49.683937" elapsed="0.001530">'nexus 6' does not contain 'vaio'</status>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-24T11:23:28.744674" level="INFO">Add-to-cart alert: Product added.</msg>
+<arg>Add-to-cart alert: ${cart_msg}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-24T11:23:28.744328" elapsed="0.000545"/>
 </kw>
-<msg time="2025-10-22T14:28:49.685842" level="INFO">${is_laptop} = False</msg>
-<var>${is_laptop}</var>
-<arg>Should Contain</arg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.683543" elapsed="0.002473"/>
+<arg>Sony vaio i5</arg>
+<status status="PASS" start="2025-10-24T11:23:26.445871" elapsed="2.299201"/>
 </kw>
-<if>
-<branch type="IF" condition="${is_laptop}">
+<kw name="Place Order">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:28.747092" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Cart']'.</msg>
+<arg>xpath=//a[normalize-space(.)='Cart']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:28.746869" elapsed="0.481641"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//button[normalize-space(.)='Place Order']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-10-24T11:23:29.228776" elapsed="0.037047"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:29.266627" level="INFO">Clicking element 'xpath=//button[normalize-space(.)='Place Order']'.</msg>
+<arg>xpath=//button[normalize-space(.)='Place Order']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:29.266268" elapsed="0.092368"/>
+</kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[normalize-space(.)='${title}']</arg>
-<arg>10</arg>
+<arg>id=name</arg>
+<arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.686634" elapsed="0.000154"/>
+<status status="PASS" start="2025-10-24T11:23:29.358894" elapsed="0.232952"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Found laptop: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.687023" elapsed="0.000123"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:29.592421" level="INFO">Typing text 'Ada Lovelace' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>Ada Lovelace</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:29.592110" elapsed="0.066032"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T14:28:49.686257" elapsed="0.000991"/>
-</branch>
-<status status="PASS" start="2025-10-22T14:28:49.686217" elapsed="0.001115"/>
-</if>
-<var name="${title}">Nexus 6</var>
-<status status="PASS" start="2025-10-22T14:28:49.682791" elapsed="0.004570"/>
-</iter>
-<iter>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Checking: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.687709" elapsed="0.000434"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:29.658676" level="INFO">Typing text 'UK' into text field 'id=country'.</msg>
+<arg>id=country</arg>
+<arg>UK</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:29.658398" elapsed="0.060011"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T14:28:49.689801" level="FAIL">'samsung galaxy s7' does not contain 'vaio'</msg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T14:28:49.688693" elapsed="0.001315">'samsung galaxy s7' does not contain 'vaio'</status>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:29.718965" level="INFO">Typing text 'London' into text field 'id=city'.</msg>
+<arg>id=city</arg>
+<arg>London</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:29.718677" elapsed="0.057527"/>
 </kw>
-<msg time="2025-10-22T14:28:49.690209" level="INFO">${is_laptop} = False</msg>
-<var>${is_laptop}</var>
-<arg>Should Contain</arg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.688420" elapsed="0.001867"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:29.776727" level="INFO">Typing text '4111111111111111' into text field 'id=card'.</msg>
+<arg>id=card</arg>
+<arg>4111111111111111</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:29.776455" elapsed="0.064780"/>
 </kw>
-<if>
-<branch type="IF" condition="${is_laptop}">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:29.841761" level="INFO">Typing text '12' into text field 'id=month'.</msg>
+<arg>id=month</arg>
+<arg>12</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:29.841486" elapsed="0.061771"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:29.903901" level="INFO">Typing text '2030' into text field 'id=year'.</msg>
+<arg>id=year</arg>
+<arg>2030</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:29.903610" elapsed="0.059366"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:29.963506" level="INFO">Clicking element 'xpath=//button[normalize-space(.)='Purchase']'.</msg>
+<arg>xpath=//button[normalize-space(.)='Purchase']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:29.963236" elapsed="0.062889"/>
+</kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[normalize-space(.)='${title}']</arg>
-<arg>10</arg>
+<arg>css=.sweet-alert p</arg>
+<arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.690619" elapsed="0.000079"/>
+<status status="PASS" start="2025-10-24T11:23:30.026489" elapsed="0.016174"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Found laptop: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.690834" elapsed="0.000072"/>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:30.059564" level="INFO">${amount} = Id: 8285768
+Amount: 0 USD
+Card Number: 4111111111111111
+Name: Ada Lovelace
+Date: 24/9/2025</msg>
+<var>${amount}</var>
+<arg>css=.sweet-alert p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:30.042992" elapsed="0.016741"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T14:28:49.690417" elapsed="0.000564"/>
-</branch>
-<status status="PASS" start="2025-10-22T14:28:49.690391" elapsed="0.000674"/>
-</if>
-<var name="${title}">Samsung galaxy s7</var>
-<status status="PASS" start="2025-10-22T14:28:49.687570" elapsed="0.003521"/>
-</iter>
-<iter>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Checking: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.691419" elapsed="0.000365"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T14:28:49.693189" level="FAIL">'iphone 6 32gb' does not contain 'vaio'</msg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
+<arg>${amount}</arg>
+<arg>Amount</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T14:28:49.692359" elapsed="0.001022">'iphone 6 32gb' does not contain 'vaio'</status>
+<status status="PASS" start="2025-10-24T11:23:30.059925" elapsed="0.000235"/>
 </kw>
-<msg time="2025-10-22T14:28:49.693775" level="INFO">${is_laptop} = False</msg>
-<var>${is_laptop}</var>
-<arg>Should Contain</arg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.692061" elapsed="0.001825"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:30.060513" level="INFO">Clicking element 'xpath=//button[normalize-space(.)='OK']'.</msg>
+<arg>xpath=//button[normalize-space(.)='OK']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:30.060310" elapsed="0.065166"/>
 </kw>
-<if>
-<branch type="IF" condition="${is_laptop}">
+<status status="PASS" start="2025-10-24T11:23:28.746499" elapsed="1.379172"/>
+</kw>
+<kw name="Logout">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:30.126878" level="INFO">Clicking element 'css=.modal.show .close'.</msg>
+<arg>css=.modal.show .close</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:30.126665" elapsed="0.071279"/>
+</kw>
+<arg>Click Element</arg>
+<arg>css=.modal.show .close</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-10-24T11:23:30.126458" elapsed="0.071686"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css=.modal.show</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-10-24T11:23:30.198331" elapsed="0.011574"/>
+</kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[normalize-space(.)='${title}']</arg>
-<arg>10</arg>
+<arg>xpath=//a[normalize-space(.)='Log out']</arg>
+<arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.694354" elapsed="0.000133"/>
+<status status="PASS" start="2025-10-24T11:23:30.210182" elapsed="0.020280"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Found laptop: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.694735" elapsed="0.000134"/>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//a[normalize-space(.)='Log out']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-10-24T11:23:30.230732" elapsed="0.022714"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T14:28:49.694076" elapsed="0.000971"/>
-</branch>
-<status status="PASS" start="2025-10-22T14:28:49.694044" elapsed="0.001127"/>
-</if>
-<var name="${title}">Iphone 6 32gb</var>
-<status status="PASS" start="2025-10-22T14:28:49.691283" elapsed="0.003937"/>
-</iter>
-<iter>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Checking: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.695670" elapsed="0.000491"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-24T11:23:31.254192" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-24T11:23:30.253723" elapsed="1.000722"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T14:28:49.697575" level="FAIL">'sony xperia z5' does not contain 'vaio'</msg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T14:28:49.696736" elapsed="0.001035">'sony xperia z5' does not contain 'vaio'</status>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T11:23:31.254896" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Log out']'.</msg>
+<arg>xpath=//a[normalize-space(.)='Log out']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T11:23:31.254647" elapsed="0.099113"/>
 </kw>
-<msg time="2025-10-22T14:28:49.698023" level="INFO">${is_laptop} = False</msg>
-<var>${is_laptop}</var>
-<arg>Should Contain</arg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.696452" elapsed="0.001687"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_laptop}">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[normalize-space(.)='${title}']</arg>
-<arg>10</arg>
+<arg>xpath=//a[normalize-space(.)='Log in']</arg>
+<arg>${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.698545" elapsed="0.000126"/>
+<status status="PASS" start="2025-10-24T11:23:31.354053" elapsed="0.023752"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Found laptop: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.698838" elapsed="0.000079"/>
+<status status="PASS" start="2025-10-24T11:23:30.126149" elapsed="1.251855"/>
 </kw>
-<status status="NOT RUN" start="2025-10-22T14:28:49.698274" elapsed="0.000717"/>
-</branch>
-<status status="PASS" start="2025-10-22T14:28:49.698250" elapsed="0.000817"/>
-</if>
-<var name="${title}">Sony xperia z5</var>
-<status status="PASS" start="2025-10-22T14:28:49.695487" elapsed="0.003606"/>
-</iter>
-<iter>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Checking: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.699451" elapsed="0.000398"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-10-22T14:28:49.701585" level="FAIL">'htc one m9' does not contain 'vaio'</msg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-10-22T14:28:49.700591" elapsed="0.001231">'htc one m9' does not contain 'vaio'</status>
-</kw>
-<msg time="2025-10-22T14:28:49.702068" level="INFO">${is_laptop} = False</msg>
-<var>${is_laptop}</var>
-<arg>Should Contain</arg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.700141" elapsed="0.002025"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_laptop}">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[normalize-space(.)='${title}']</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.702708" elapsed="0.000138"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Found laptop: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-22T14:28:49.703059" elapsed="0.000166"/>
-</kw>
-<status status="NOT RUN" start="2025-10-22T14:28:49.702377" elapsed="0.000999"/>
-</branch>
-<status status="PASS" start="2025-10-22T14:28:49.702326" elapsed="0.001165"/>
-</if>
-<var name="${title}">HTC One M9</var>
-<status status="PASS" start="2025-10-22T14:28:49.699278" elapsed="0.004254"/>
-</iter>
-<iter>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Checking: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.704005" elapsed="0.000577"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.705507" elapsed="0.000849"/>
-</kw>
-<msg time="2025-10-22T14:28:49.706596" level="INFO">${is_laptop} = True</msg>
-<var>${is_laptop}</var>
-<arg>Should Contain</arg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.704958" elapsed="0.001823"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_laptop}">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[normalize-space(.)='${title}']</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.707145" elapsed="0.242550"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Found laptop: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.949950" elapsed="0.000421"/>
-</kw>
-<status status="PASS" start="2025-10-22T14:28:49.706934" elapsed="0.243617"/>
-</branch>
-<status status="PASS" start="2025-10-22T14:28:49.706908" elapsed="0.243742"/>
-</if>
-<var name="${title}">Sony vaio i5</var>
-<status status="PASS" start="2025-10-22T14:28:49.703796" elapsed="0.246885"/>
-</iter>
-<iter>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Checking: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.951050" elapsed="0.000323"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.952056" elapsed="0.000680"/>
-</kw>
-<msg time="2025-10-22T14:28:49.952966" level="INFO">${is_laptop} = True</msg>
-<var>${is_laptop}</var>
-<arg>Should Contain</arg>
-<arg>${title.lower()}</arg>
-<arg>vaio</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.951707" elapsed="0.001385"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_laptop}">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//a[normalize-space(.)='${title}']</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.953571" elapsed="0.019613"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Found laptop: ${title}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.973479" elapsed="0.000553"/>
-</kw>
-<status status="PASS" start="2025-10-22T14:28:49.953291" elapsed="0.021065"/>
-</branch>
-<status status="PASS" start="2025-10-22T14:28:49.953257" elapsed="0.021278"/>
-</if>
-<var name="${title}">Sony vaio i7</var>
-<status status="PASS" start="2025-10-22T14:28:49.950885" elapsed="0.023698"/>
-</iter>
-<var>${title}</var>
-<value>@{titles}</value>
-<status status="PASS" start="2025-10-22T14:28:49.673070" elapsed="0.301822"/>
-</for>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-10-22T14:28:49.975556" elapsed="2.250970"/>
+<status status="PASS" start="2025-10-24T11:23:31.378355" elapsed="2.415544"/>
 </kw>
-<status status="PASS" start="2025-10-22T14:28:46.938458" elapsed="5.288936"/>
+<status status="PASS" start="2025-10-24T11:23:20.547941" elapsed="13.248106"/>
 </test>
-<status status="PASS" start="2025-10-22T14:28:46.582445" elapsed="5.646741"/>
+<status status="PASS" start="2025-10-24T11:23:20.206632" elapsed="13.592257"/>
 </suite>
 <statistics>
 <total>
@@ -475,10 +585,10 @@
 <tag>
 </tag>
 <suite>
-<stat name="demoblaze api UI 01" id="s1" pass="1" fail="0" skip="0">demoblaze api UI 01</stat>
+<stat name="Demoblaze E2E" id="s1" pass="1" fail="0" skip="0">Demoblaze E2E</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-10-22T14:28:46.557230" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api_UI_01.robot' on line 30: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-24T11:23:20.164102" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_e2e.robot' on line 23: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>
