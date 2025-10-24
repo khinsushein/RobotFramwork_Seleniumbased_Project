@@ -1,4 +1,4 @@
 robotframework
 robotframework-seleniumlibrary
-robotframework-requests
+webdriver_manager
 selenium

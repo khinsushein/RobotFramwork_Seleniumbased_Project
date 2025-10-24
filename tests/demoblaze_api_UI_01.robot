@@ -17,7 +17,7 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    Create Webdriver    Chrome    options=${options}
+    Create WebDriver    Chrome    options=${options}
     Go To    https://www.demoblaze.com/
 
 Get Product Titles From API

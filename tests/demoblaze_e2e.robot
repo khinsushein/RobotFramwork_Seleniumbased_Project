@@ -14,7 +14,7 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    Create Webdriver    Chrome    options=${options}
+    Create WebDriver    Chrome    options=${options}
     Go To    https://www.demoblaze.com/
 Generate Unique Credentials
     ${rand}=        Generate Random String    8    [LOWER]
@@ -68,6 +68,7 @@ Add Product To Cart
     # Open category, then wait for the product link to appear
     Click Element    xpath=//a[normalize-space(.)='Laptops']
     Wait Until Element Is Visible    xpath=//a[normalize-space(.)='${product}']    ${TIMEOUT}
+    Sleep    1s
     Click Element    xpath=//a[normalize-space(.)='${product}']
     Wait Until Element Is Visible    xpath=//a[normalize-space(.)='Add to cart']    ${TIMEOUT}
     Click Element    xpath=//a[normalize-space(.)='Add to cart']
