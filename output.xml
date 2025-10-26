@@ -1,126 +1,302 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.1 on win32)" generated="2025-10-26T22:48:03.498348" rpa="false" schemaversion="5">
-<suite id="s1" name="Demoblaze E2E" source="c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_e2e.robot">
-<test id="s1-t1" name="End-to-End User Journey" line="109">
-<kw name="Open Chrome With CI Options">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-26T22:48:03.836733" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001D11C17F230&gt;</msg>
-<var>${options}</var>
-<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
-<arg>sys, selenium.webdriver</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-26T22:48:03.836310" elapsed="0.002394"/>
+<robot generator="Robot 7.3.2 (Python 3.13.1 on win32)" generated="2025-10-26T23:01:35.517485" rpa="false" schemaversion="5">
+<suite id="s1" name="Demoblaze Api" source="c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api.robot">
+<test id="s1-t1" name="API Flow: Signup, Login, List Products" line="51">
+<kw name="Make API Session">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-26T23:01:35.915661" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-26T23:01:35.914426" elapsed="0.002869"/>
 </kw>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>--no-sandbox</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-10-26T22:48:03.838958" elapsed="0.000257"/>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-10-26T23:01:35.917942" level="INFO">Creating Session using : alias=demoblaze, url=https://api.demoblaze.com, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=15, proxies=None, verify=False,                     debug=0 </msg>
+<arg>demoblaze</arg>
+<arg>${API_BASE}</arg>
+<arg>headers=${headers}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-10-26T23:01:35.917551" elapsed="0.000676"/>
 </kw>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>--disable-dev-shm-usage</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-10-26T22:48:03.839377" elapsed="0.000185"/>
+<status status="PASS" start="2025-10-26T23:01:35.913634" elapsed="0.004743"/>
 </kw>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>--headless</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-10-26T22:48:03.839705" elapsed="0.000178"/>
+<kw name="Generate Random String" owner="String">
+<msg time="2025-10-26T23:01:35.919088" level="INFO">${rand} = cqqgvxxu</msg>
+<var>${rand}</var>
+<arg>8</arg>
+<arg>[LOWER]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-10-26T23:01:35.918752" elapsed="0.000434"/>
 </kw>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${options}</arg>
-<arg>add_argument</arg>
-<arg>--disable-gpu</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-10-26T22:48:03.840010" elapsed="0.000165"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-26T22:48:03.918131" level="INFO">====== WebDriver manager ======</msg>
-<msg time="2025-10-26T22:48:05.279621" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
-<msg time="2025-10-26T22:48:05.535418" level="FAIL">Evaluating expression "sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()" failed: ConnectionError: Could not reach host. Are you offline?</msg>
-<var>${driver_path}</var>
-<arg>sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()</arg>
-<arg>sys, webdriver_manager.chrome</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="FAIL" start="2025-10-26T22:48:03.840306" elapsed="1.696161">Evaluating expression "sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()" failed: ConnectionError: Could not reach host. Are you offline?</status>
-</kw>
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<arg>Chrome</arg>
-<arg>executable_path=${driver_path}</arg>
-<arg>options=${options}</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="NOT RUN" start="2025-10-26T22:48:05.536831" elapsed="0.000141"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<arg>https://www.demoblaze.com/</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" start="2025-10-26T22:48:05.537121" elapsed="0.000077"/>
-</kw>
-<status status="FAIL" start="2025-10-26T22:48:03.835548" elapsed="1.701802">Evaluating expression "sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()" failed: ConnectionError: Could not reach host. Are you offline?</status>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" start="2025-10-26T22:48:05.537764" elapsed="0.000111"/>
-</kw>
-<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
-<arg>${TIMEOUT}</arg>
-<doc>Sets the timeout that is used by various keywords.</doc>
-<status status="NOT RUN" start="2025-10-26T22:48:05.538172" elapsed="0.000116"/>
-</kw>
-<kw name="Generate Unique Credentials">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-26T23:01:35.919781" level="INFO">${u} = rf_cqqgvxxu</msg>
 <var>${u}</var>
+<arg>rf_${rand}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-26T23:01:35.919518" elapsed="0.000357"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-26T23:01:35.920405" level="INFO">${p} = P@ssw0rd!</msg>
 <var>${p}</var>
-<status status="NOT RUN" start="2025-10-26T22:48:05.538671" elapsed="0.000112"/>
+<arg>P@ssw0rd!</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-26T23:01:35.920210" elapsed="0.000282"/>
+</kw>
+<kw name="Signup User">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-26T23:01:35.921552" level="INFO">${payload} = {'username': 'rf_cqqgvxxu', 'password': 'P@ssw0rd!'}</msg>
+<var>${payload}</var>
+<arg>username=${username}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-26T23:01:35.921259" elapsed="0.000386"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-10-26T23:01:36.255906" level="INFO">POST Request : url=https://api.demoblaze.com/signup 
+ path_url=/signup 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '52'} 
+ body=b'{"username": "rf_cqqgvxxu", "password": "P@ssw0rd!"}' 
+ </msg>
+<msg time="2025-10-26T23:01:36.256164" level="INFO">POST Response : url=https://api.demoblaze.com/signup 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'x-cloud-trace-context': '4826f0f05cb521d247aaa25743671f37', 'date': 'Sun, 26 Oct 2025 22:01:36 GMT', 'server': 'Google Frontend', 'Content-Length': '3'} 
+ body=""
+ 
+ </msg>
+<msg time="2025-10-26T23:01:36.256300" level="INFO">c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.demoblaze.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-26T23:01:36.256674" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>demoblaze</arg>
+<arg>/signup</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-26T23:01:35.921785" elapsed="0.335029"/>
+</kw>
+<return>
+<value>${resp}</value>
+<status status="PASS" start="2025-10-26T23:01:36.256950" elapsed="0.000133"/>
+</return>
+<msg time="2025-10-26T23:01:36.257288" level="INFO">${signup} = &lt;Response [200]&gt;</msg>
+<var>${signup}</var>
+<arg>${u}</arg>
+<arg>${p}</arg>
+<status status="PASS" start="2025-10-26T23:01:35.920880" elapsed="0.336497"/>
+</kw>
+<kw name="Login User">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-26T23:01:36.259813" level="INFO">${payload} = {'username': 'rf_cqqgvxxu', 'password': 'P@ssw0rd!', 'remember': 'true'}</msg>
+<var>${payload}</var>
+<arg>username=${username}</arg>
+<arg>password=${password}</arg>
+<arg>remember=true</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.259462" elapsed="0.000476"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-10-26T23:01:36.489269" level="INFO">POST Request : url=https://api.demoblaze.com/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '72'} 
+ body=b'{"username": "rf_cqqgvxxu", "password": "P@ssw0rd!", "remember": "true"}' 
+ </msg>
+<msg time="2025-10-26T23:01:36.489676" level="INFO">POST Response : url=https://api.demoblaze.com/login 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'vary': 'Accept-Encoding', 'content-encoding': 'gzip', 'x-cloud-trace-context': '0bf9bd7304812b18a9fdf65ab78d6e50;o=1', 'date': 'Sun, 26 Oct 2025 22:01:36 GMT', 'server': 'Google Frontend', 'Transfer-Encoding': 'chunked'} 
+ body="Auth_token: cmZfY3FxZ3Z4eHUxNzYyMTE2"
+ 
+ </msg>
+<msg time="2025-10-26T23:01:36.489943" level="INFO">c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.demoblaze.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-26T23:01:36.490626" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>demoblaze</arg>
+<arg>/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.260126" elapsed="0.230758"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-26T23:01:36.492427" level="INFO">${text} = "Auth_token: cmZfY3FxZ3Z4eHUxNzYyMTE2"
+</msg>
+<var>${text}</var>
+<arg>${resp.text}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.491260" elapsed="0.001402"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-26T23:01:36.493661" level="INFO">${token} = Auth_token: cmZfY3FxZ3Z4eHUxNzYyMTE2</msg>
+<var>${token}</var>
+<arg>str(${text}).strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.493020" elapsed="0.000844"/>
+</kw>
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${token}</arg>
+<arg>Auth_token:</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.494166" elapsed="0.000422"/>
+</kw>
+<return>
+<value>${token}</value>
+<status status="PASS" start="2025-10-26T23:01:36.494797" elapsed="0.000372"/>
+</return>
+<msg time="2025-10-26T23:01:36.495697" level="INFO">${token} = Auth_token: cmZfY3FxZ3Z4eHUxNzYyMTE2</msg>
+<var>${token}</var>
+<arg>${u}</arg>
+<arg>${p}</arg>
+<status status="PASS" start="2025-10-26T23:01:36.257903" elapsed="0.238539"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
-<arg>Using credentials: ${u} / ${p}</arg>
+<arg>Token = ${token}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-10-26T22:48:05.539067" elapsed="0.000086"/>
+<status status="PASS" start="2025-10-26T23:01:36.497227" elapsed="0.000753"/>
 </kw>
-<kw name="Sign Up">
-<arg>${u}</arg>
-<arg>${p}</arg>
-<status status="NOT RUN" start="2025-10-26T22:48:05.539584" elapsed="0.000108"/>
+<kw name="Get Product Entries">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-10-26T23:01:36.699098" level="INFO">GET Request : url=https://api.demoblaze.com/entries 
+ path_url=/entries 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+ body=None 
+ </msg>
+<msg time="2025-10-26T23:01:36.699523" level="INFO">GET Response : url=https://api.demoblaze.com/entries 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'vary': 'Accept-Encoding', 'content-encoding': 'gzip', 'x-cloud-trace-context': '1dfb62bd1fd745faa9fdf65ab78d66c7', 'date': 'Sun, 26 Oct 2025 22:01:36 GMT', 'server': 'Google Frontend', 'Content-Length': '995'} 
+ body={"Items":[{"cat":"phone","desc":"The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expanded. ","id":1,"img":"imgs/galaxy_s6.jpg","price":360.0,"title":"Samsung galaxy s6"},{"cat":"phone","desc":"The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM. ","id":2,"img":"imgs/Lumia_1520.jpg","price":820.0,"title":"Nokia lumia 1520"},{"cat":"phone","desc":"The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.","id":3,"img":"imgs/Nexus_6.jpg","price":650.0,"title":"Nexus 6"},{"cat":"phone","desc":"The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage that can be expanded up\n to 200GB via a microSD card.","id":4,"img":"imgs/galaxy_s6.jpg","price":800.0,"title":"Samsung galaxy s7"},{"cat":"phone","desc":"It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concerned, the Apple \niPhone 6 packs a 8-megapixel primary camera on the rear and a \n1.2-megapixel front shooter for selfies.","id":5,"img":"imgs/iphone_6.jpg","price":790.0,"title":"Iphone 6 32gb"},{"cat":"phone","desc":"Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display with a resolution of 1080 \npixels by 1920 pixels at a PPI of 424 pixels per inch.","id":6,"img":"imgs/xperia_z5.jpg","price":320.0,"title":"Sony xperia z5"},{"cat":"phone","desc":"The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone packs 32GB of internal\n storage that can be expanded up to 128GB via a microSD card. ","id":7,"img":"imgs/HTC_M9.jpg","price":700.0,"title":"HTC One M9"},{"cat":"notebook","desc":"Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook to Apple's 13-inch \nMacBook Pro. And in a lot of ways this notebook is better, thanks to a \nlighter weight.","id":8,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i5"},{"cat":"notebook","desc":"REVIEW\n \nSony is so confident that the VAIO S is a superior \nultraportable laptop that the company proudly compares the notebook to \nApple's 13-inch MacBook Pro. And in a lot of ways this notebook is \nbetter, thanks to a lighter weight, higher-resolution display, more \nstorage space, and a Blu-ray drive. ","id":9,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i7\n"}],"LastEvaluatedKey":{"id":"9"}}
+ 
+ </msg>
+<msg time="2025-10-26T23:01:36.699880" level="INFO">c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.demoblaze.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-26T23:01:36.700558" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>demoblaze</arg>
+<arg>/entries</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.499470" elapsed="0.201337"/>
 </kw>
-<kw name="Login">
-<arg>${u}</arg>
-<arg>${p}</arg>
-<status status="NOT RUN" start="2025-10-26T22:48:05.540204" elapsed="0.000179"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-26T23:01:36.701893" level="INFO">${data} = {'Items': [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage canno...</msg>
+<var>${data}</var>
+<arg>$resp.json()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.701174" elapsed="0.000915"/>
 </kw>
-<kw name="Add Product To Cart">
-<arg>Sony vaio i5</arg>
-<status status="NOT RUN" start="2025-10-26T22:48:05.540821" elapsed="0.000103"/>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-10-26T23:01:36.702754" level="INFO">${items} = [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expan...</msg>
+<var>${items}</var>
+<arg>${data}</arg>
+<arg>Items</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.702349" elapsed="0.000542"/>
 </kw>
-<kw name="Place Order">
-<status status="NOT RUN" start="2025-10-26T22:48:05.541278" elapsed="0.000099"/>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-10-26T23:01:36.703305" level="INFO">Length is 9.</msg>
+<arg>${items}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.703075" elapsed="0.000367"/>
 </kw>
-<kw name="Logout">
-<status status="NOT RUN" start="2025-10-26T22:48:05.541874" elapsed="0.000090"/>
+<return>
+<value>${items}</value>
+<status status="PASS" start="2025-10-26T23:01:36.703552" elapsed="0.000109"/>
+</return>
+<msg time="2025-10-26T23:01:36.703883" level="INFO">${items} = [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expan...</msg>
+<var>${items}</var>
+<status status="PASS" start="2025-10-26T23:01:36.498770" elapsed="0.205211"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-10-26T22:48:05.542328" elapsed="0.000095"/>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-10-26T23:01:36.704895" level="INFO">Length is 9.</msg>
+<msg time="2025-10-26T23:01:36.705042" level="INFO">${count} = 9</msg>
+<var>${count}</var>
+<arg>${items}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.704318" elapsed="0.000797"/>
 </kw>
-<status status="FAIL" start="2025-10-26T22:48:03.834766" elapsed="1.708076">Evaluating expression "sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()" failed: ConnectionError: Could not reach host. Are you offline?</status>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-26T23:01:36.706226" level="INFO">Got 9 items</msg>
+<arg>Got ${count} items</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.705837" elapsed="0.000663"/>
+</kw>
+<status status="PASS" start="2025-10-26T23:01:35.912906" elapsed="0.794354"/>
 </test>
-<status status="FAIL" start="2025-10-26T22:48:03.505031" elapsed="2.039139"/>
+<test id="s1-t2" name="Check For Specific Item" line="69">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-10-26T23:01:36.710149" level="INFO">Creating Session using : alias=demoblaze, url=https://api.demoblaze.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>demoblaze</arg>
+<arg>${API_BASE}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-10-26T23:01:36.709863" elapsed="0.000514"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-10-26T23:01:36.971527" level="INFO">GET Request : url=https://api.demoblaze.com/entries 
+ path_url=/entries 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-26T23:01:36.972219" level="INFO">GET Response : url=https://api.demoblaze.com/entries 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'vary': 'Accept-Encoding', 'content-encoding': 'gzip', 'x-cloud-trace-context': 'efcc84cdf19449360a23dfee2c115012', 'date': 'Sun, 26 Oct 2025 22:01:36 GMT', 'server': 'Google Frontend', 'Content-Length': '995'} 
+ body={"Items":[{"cat":"phone","desc":"The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expanded. ","id":1,"img":"imgs/galaxy_s6.jpg","price":360.0,"title":"Samsung galaxy s6"},{"cat":"phone","desc":"The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM. ","id":2,"img":"imgs/Lumia_1520.jpg","price":820.0,"title":"Nokia lumia 1520"},{"cat":"phone","desc":"The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.","id":3,"img":"imgs/Nexus_6.jpg","price":650.0,"title":"Nexus 6"},{"cat":"phone","desc":"The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage that can be expanded up\n to 200GB via a microSD card.","id":4,"img":"imgs/galaxy_s6.jpg","price":800.0,"title":"Samsung galaxy s7"},{"cat":"phone","desc":"It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concerned, the Apple \niPhone 6 packs a 8-megapixel primary camera on the rear and a \n1.2-megapixel front shooter for selfies.","id":5,"img":"imgs/iphone_6.jpg","price":790.0,"title":"Iphone 6 32gb"},{"cat":"phone","desc":"Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display with a resolution of 1080 \npixels by 1920 pixels at a PPI of 424 pixels per inch.","id":6,"img":"imgs/xperia_z5.jpg","price":320.0,"title":"Sony xperia z5"},{"cat":"phone","desc":"The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone packs 32GB of internal\n storage that can be expanded up to 128GB via a microSD card. ","id":7,"img":"imgs/HTC_M9.jpg","price":700.0,"title":"HTC One M9"},{"cat":"notebook","desc":"Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook to Apple's 13-inch \nMacBook Pro. And in a lot of ways this notebook is better, thanks to a \nlighter weight.","id":8,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i5"},{"cat":"notebook","desc":"REVIEW\n \nSony is so confident that the VAIO S is a superior \nultraportable laptop that the company proudly compares the notebook to \nApple's 13-inch MacBook Pro. And in a lot of ways this notebook is \nbetter, thanks to a lighter weight, higher-resolution display, more \nstorage space, and a Blu-ray drive. ","id":9,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i7\n"}],"LastEvaluatedKey":{"id":"9"}}
+ 
+ </msg>
+<msg time="2025-10-26T23:01:36.972693" level="INFO">c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.demoblaze.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-26T23:01:36.973405" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>demoblaze</arg>
+<arg>/entries</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.710730" elapsed="0.262981"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-26T23:01:36.975456" level="INFO">${data} = {'Items': [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage canno...</msg>
+<var>${data}</var>
+<arg>$resp.json()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.974539" elapsed="0.001171"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-10-26T23:01:36.977389" level="INFO">${items} = [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expan...</msg>
+<var>${items}</var>
+<arg>${data}</arg>
+<arg>Items</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.976507" elapsed="0.001158"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-26T23:01:36.979291" level="INFO">${titles} = ['Samsung galaxy s6', 'Nokia lumia 1520', 'Nexus 6', 'Samsung galaxy s7', 'Iphone 6 32gb', 'Sony xperia z5', 'HTC One M9', 'Sony vaio i5', 'Sony vaio i7\n']</msg>
+<var>${titles}</var>
+<arg>[item['title'] for item in $items]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.978499" elapsed="0.001002"/>
+</kw>
+<kw name="List Should Contain Value" owner="Collections">
+<arg>${titles}</arg>
+<arg>Sony vaio i5</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="PASS" start="2025-10-26T23:01:36.980123" elapsed="0.000452"/>
+</kw>
+<status status="PASS" start="2025-10-26T23:01:36.709127" elapsed="0.271962"/>
+</test>
+<status status="PASS" start="2025-10-26T23:01:35.524071" elapsed="1.458323"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Demoblaze E2E" id="s1" pass="0" fail="1" skip="0">Demoblaze E2E</stat>
+<stat name="Demoblaze Api" id="s1" pass="2" fail="0" skip="0">Demoblaze Api</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-10-26T22:48:03.475343" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_e2e.robot' on line 24: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-26T23:01:35.494266" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api.robot' on line 30: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-26T23:01:35.494756" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api.robot' on line 41: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-26T23:01:35.495098" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api.robot' on line 48: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>
