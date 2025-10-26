@@ -15,7 +15,8 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    Open Browser    https://api.demoblaze.com    Chrome    options=${options}
+    ${driver_path}=    Evaluate    sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()    sys, webdriver_manager.chrome
+    Create WebDriver    Chrome    executable_path=${driver_path}    options=${options}
     Go To    https://api.demoblaze.com
 Make API Session
     &{headers}=    Create Dictionary    Content-Type=application/json
@@ -27,7 +28,7 @@ Signup User
     ${resp}=    POST On Session    demoblaze    /signup
     ...         json=${payload}
     ...         expected_status=200
-    [Return]    ${resp}
+    [RETURN]    ${resp}
 
 Login User
     [Arguments]    ${username}    ${password}
@@ -38,14 +39,14 @@ Login User
     ${text}=    Set Variable    ${resp.text}
     ${token}=    Evaluate    str(${text}).strip()
     Should Start With    ${token}    Auth_token:
-    [Return]    ${token}
+    [RETURN]    ${token}
 
 Get Product Entries
     ${resp}=    GET On Session    demoblaze    /entries    expected_status=200
     ${data}=    Evaluate    $resp.json()
     ${items}=   Get From Dictionary    ${data}    Items
     Should Not Be Empty    ${items}
-    [Return]    ${items}
+    [RETURN]    ${items}
 
 *** Test Cases ***
 API Flow: Signup, Login, List Products

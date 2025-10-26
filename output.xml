@@ -1,736 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.1 on win32)" generated="2025-10-24T12:13:27.044047" rpa="false" schemaversion="5">
-<suite id="s1" name="demoblaze api UI 02" source="c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api_UI_02.robot">
-<test id="s1-t1" name="Verify Phone Products From API Are Shown In UI" line="79">
-<kw name="Get Phone Titles From API">
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-10-24T12:13:27.502233" level="INFO">Creating Session using : alias=demoblaze, url=https://api.demoblaze.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>demoblaze</arg>
-<arg>${API_BASE}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-10-24T12:13:27.501963" elapsed="0.002587"/>
+<robot generator="Robot 7.3.2 (Python 3.13.1 on win32)" generated="2025-10-26T22:48:03.498348" rpa="false" schemaversion="5">
+<suite id="s1" name="Demoblaze E2E" source="c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_e2e.robot">
+<test id="s1-t1" name="End-to-End User Journey" line="109">
+<kw name="Open Chrome With CI Options">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-26T22:48:03.836733" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001D11C17F230&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-26T22:48:03.836310" elapsed="0.002394"/>
 </kw>
-<kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-10-24T12:13:27.797019" level="INFO">GET Request : url=https://api.demoblaze.com/entries 
- path_url=/entries 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2025-10-24T12:13:27.797623" level="INFO">GET Response : url=https://api.demoblaze.com/entries 
- status=200, reason=OK 
- headers={'content-type': 'application/json', 'vary': 'Accept-Encoding', 'content-encoding': 'gzip', 'x-cloud-trace-context': '987d9830c7e08ea1017ba211ee98a396', 'date': 'Fri, 24 Oct 2025 10:13:27 GMT', 'server': 'Google Frontend', 'Content-Length': '995'} 
- body={"Items":[{"cat":"phone","desc":"The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expanded. ","id":1,"img":"imgs/galaxy_s6.jpg","price":360.0,"title":"Samsung galaxy s6"},{"cat":"phone","desc":"The Nokia Lumia 1520 is powered by 2.2GHz quad-core Qualcomm Snapdragon 800 processor and it comes with 2GB of RAM. ","id":2,"img":"imgs/Lumia_1520.jpg","price":820.0,"title":"Nokia lumia 1520"},{"cat":"phone","desc":"The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.","id":3,"img":"imgs/Nexus_6.jpg","price":650.0,"title":"Nexus 6"},{"cat":"phone","desc":"The Samsung Galaxy S7 is powered by 1.6GHz octa-core it comes with 4GB \nof RAM. The phone packs 32GB of internal storage that can be expanded up\n to 200GB via a microSD card.","id":4,"img":"imgs/galaxy_s6.jpg","price":800.0,"title":"Samsung galaxy s7"},{"cat":"phone","desc":"It comes with 1GB of RAM. The phone packs 16GB of internal storage \ncannot be expanded. As far as the cameras are concerned, the Apple \niPhone 6 packs a 8-megapixel primary camera on the rear and a \n1.2-megapixel front shooter for selfies.","id":5,"img":"imgs/iphone_6.jpg","price":790.0,"title":"Iphone 6 32gb"},{"cat":"phone","desc":"Sony Xperia Z5 Dual smartphone was launched in September 2015. The phone\n comes with a 5.20-inch touchscreen display with a resolution of 1080 \npixels by 1920 pixels at a PPI of 424 pixels per inch.","id":6,"img":"imgs/xperia_z5.jpg","price":320.0,"title":"Sony xperia z5"},{"cat":"phone","desc":"The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 \nprocessor and it comes with 3GB of RAM. The phone packs 32GB of internal\n storage that can be expanded up to 128GB via a microSD card. ","id":7,"img":"imgs/HTC_M9.jpg","price":700.0,"title":"HTC One M9"},{"cat":"notebook","desc":"Sony is so confident that the VAIO S is a superior ultraportable laptop \nthat the company proudly compares the notebook to Apple's 13-inch \nMacBook Pro. And in a lot of ways this notebook is better, thanks to a \nlighter weight.","id":8,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i5"},{"cat":"notebook","desc":"REVIEW\n \nSony is so confident that the VAIO S is a superior \nultraportable laptop that the company proudly compares the notebook to \nApple's 13-inch MacBook Pro. And in a lot of ways this notebook is \nbetter, thanks to a lighter weight, higher-resolution display, more \nstorage space, and a Blu-ray drive. ","id":9,"img":"imgs/sony_vaio_5.jpg","price":790.0,"title":"Sony vaio i7\n"}],"LastEvaluatedKey":{"id":"9"}}
- 
- </msg>
-<msg time="2025-10-24T12:13:27.797981" level="INFO">c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.demoblaze.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg time="2025-10-24T12:13:27.798898" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<var>${resp}</var>
-<arg>demoblaze</arg>
-<arg>/entries</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-10-24T12:13:27.504791" elapsed="0.294423"/>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-26T22:48:03.838958" elapsed="0.000257"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-26T22:48:03.839377" elapsed="0.000185"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-26T22:48:03.839705" elapsed="0.000178"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-26T22:48:03.840010" elapsed="0.000165"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-24T12:13:27.800517" level="INFO">${data} = {'Items': [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage canno...</msg>
-<var>${data}</var>
-<arg>$resp.json()</arg>
+<msg time="2025-10-26T22:48:03.918131" level="INFO">====== WebDriver manager ======</msg>
+<msg time="2025-10-26T22:48:05.279621" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg time="2025-10-26T22:48:05.535418" level="FAIL">Evaluating expression "sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()" failed: ConnectionError: Could not reach host. Are you offline?</msg>
+<var>${driver_path}</var>
+<arg>sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()</arg>
+<arg>sys, webdriver_manager.chrome</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-24T12:13:27.799668" elapsed="0.001086"/>
+<status status="FAIL" start="2025-10-26T22:48:03.840306" elapsed="1.696161">Evaluating expression "sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()" failed: ConnectionError: Could not reach host. Are you offline?</status>
 </kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-10-24T12:13:27.801595" level="INFO">${items} = [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expan...</msg>
-<var>${items}</var>
-<arg>${data}</arg>
-<arg>Items</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-10-24T12:13:27.801274" elapsed="0.000430"/>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>executable_path=${driver_path}</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="NOT RUN" start="2025-10-26T22:48:05.536831" elapsed="0.000141"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-24T12:13:27.802417" level="INFO">${phones} = [{'cat': 'phone', 'desc': 'The Samsung Galaxy S6 is powered by 1.5GHz octa-core Samsung Exynos 7420\n processor and it comes with 3GB of RAM. The phone packs 32GB of \ninternal storage cannot be expan...</msg>
-<var>${phones}</var>
-<arg>[i for i in $items if str(i.get('cat','')).lower() == 'phone']</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-24T12:13:27.801940" elapsed="0.000585"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-24T12:13:27.803035" level="INFO">${titles} = ['HTC One M9', 'Iphone 6 32gb', 'Nexus 6', 'Nokia lumia 1520', 'Samsung galaxy s6', 'Samsung galaxy s7', 'Sony xperia z5']</msg>
-<var>${titles}</var>
-<arg>sorted({ i['title'].strip() for i in $phones })</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-24T12:13:27.802678" elapsed="0.000480"/>
-</kw>
-<return>
-<value>${titles}</value>
-<status status="PASS" start="2025-10-24T12:13:27.803278" elapsed="0.000151"/>
-</return>
-<msg time="2025-10-24T12:13:27.803654" level="INFO">${api_titles} = ['HTC One M9', 'Iphone 6 32gb', 'Nexus 6', 'Nokia lumia 1520', 'Samsung galaxy s6', 'Samsung galaxy s7', 'Sony xperia z5']</msg>
-<var>${api_titles}</var>
-<status status="PASS" start="2025-10-24T12:13:27.501140" elapsed="0.302620"/>
-</kw>
-<kw name="Open Demoblaze And Go To Phones">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:27.804988" level="INFO">Opening browser 'chrome' to base url 'https://www.demoblaze.com/'.</msg>
+<kw name="Go To" owner="SeleniumLibrary">
 <arg>https://www.demoblaze.com/</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-10-24T12:13:27.804627" elapsed="2.126135"/>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-10-26T22:48:05.537121" elapsed="0.000077"/>
+</kw>
+<status status="FAIL" start="2025-10-26T22:48:03.835548" elapsed="1.701802">Evaluating expression "sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()" failed: ConnectionError: Could not reach host. Are you offline?</status>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-10-24T12:13:29.931346" elapsed="0.052012"/>
+<status status="NOT RUN" start="2025-10-26T22:48:05.537764" elapsed="0.000111"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>css=#tbodyid .card-title a</arg>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
 <arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-10-24T12:13:29.983977" elapsed="0.278604"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.263154" level="INFO">Clicking element 'xpath=//a[normalize-space(.)='Phones']'.</msg>
-<arg>xpath=//a[normalize-space(.)='Phones']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.262857" elapsed="0.072776"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>css=#tbodyid .card-title a</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.335896" elapsed="0.009641"/>
-</kw>
-<status status="PASS" start="2025-10-24T12:13:27.804223" elapsed="2.541614"/>
-</kw>
-<kw name="Collect All UI Titles In Phones">
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-10-24T12:13:30.347040" level="INFO">${seen} = []</msg>
-<var>${seen}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.346838" elapsed="0.000319"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-24T12:13:30.347490" level="INFO">${stall} = 0</msg>
-<var>${stall}</var>
-<arg>0</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.347303" elapsed="0.000276"/>
-</kw>
-<while condition="${stall} &lt; 2">
-<iter>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-10-24T12:13:30.348287" level="INFO">${page} = []</msg>
-<var>${page}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.348116" elapsed="0.000259"/>
-</kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.358890" level="INFO">${els} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.78")&gt;, &lt;selenium.webdriv...</msg>
-<var>${els}</var>
-<arg>css=#tbodyid .card-title a</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.348506" elapsed="0.010554"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.419098" level="INFO">${t} = Samsung galaxy s6</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.359654" elapsed="0.059635"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.419495" elapsed="0.000574"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.78")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:30.359473" elapsed="0.060705"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.454081" level="INFO">${t} = Nokia lumia 1520</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.420549" elapsed="0.033812"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.454628" elapsed="0.000638"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.79")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:30.420371" elapsed="0.035015"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.465884" level="INFO">${t} = Nexus 6</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.455745" elapsed="0.010324"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.466269" elapsed="0.000508"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.80")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:30.455580" elapsed="0.011308"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.476233" level="INFO">${t} = Samsung galaxy s7</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.467214" elapsed="0.009199"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.476609" elapsed="0.000507"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.81")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:30.467056" elapsed="0.010161"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.486795" level="INFO">${t} = Iphone 6 32gb</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.477558" elapsed="0.009451"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.487244" elapsed="0.000595"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.82")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:30.477393" elapsed="0.010577"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.498359" level="INFO">${t} = Sony xperia z5</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.488359" elapsed="0.010195"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.498784" elapsed="0.000548"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.83")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:30.488180" elapsed="0.011263"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.506919" level="INFO">${t} = HTC One M9</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.499792" elapsed="0.007312"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.507471" elapsed="0.000567"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.84")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:30.499618" elapsed="0.008550"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.517407" level="INFO">${t} = Sony vaio i5</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.508509" elapsed="0.009069"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.517779" elapsed="0.000504"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.85")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:30.508347" elapsed="0.010047"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.527917" level="INFO">${t} = Sony vaio i7</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.518727" elapsed="0.009366"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.528294" elapsed="0.000505"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.86")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:30.518568" elapsed="0.010336"/>
-</iter>
-<var>${el}</var>
-<value>@{els}</value>
-<status status="PASS" start="2025-10-24T12:13:30.359201" elapsed="0.169800"/>
-</for>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2025-10-24T12:13:30.529365" level="INFO">Length is 0.</msg>
-<msg time="2025-10-24T12:13:30.529501" level="INFO">${before} = 0</msg>
-<var>${before}</var>
-<arg>${seen}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.529176" elapsed="0.000405"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-24T12:13:30.530008" level="INFO">${seen} = ['HTC One M9', 'Iphone 6 32gb', 'Nexus 6', 'Nokia lumia 1520', 'Samsung galaxy s6', 'Samsung galaxy s7', 'Sony vaio i5', 'Sony vaio i7', 'Sony xperia z5']</msg>
-<var>${seen}</var>
-<arg>list(sorted(set($seen) | set($page)))</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.529714" elapsed="0.000378"/>
-</kw>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2025-10-24T12:13:30.530374" level="INFO">Length is 9.</msg>
-<msg time="2025-10-24T12:13:30.530502" level="INFO">${after} = 9</msg>
-<var>${after}</var>
-<arg>${seen}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.530219" elapsed="0.000351"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-24T12:13:30.531758" level="INFO">${stall} = 0</msg>
-<var>${stall}</var>
-<arg>${${after} &lt;= ${before} and ${stall}+1 or 0}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.530710" elapsed="0.001166"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.544164" level="INFO">Current page contains element 'id=next2'.</msg>
-<arg>id=next2</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.532298" elapsed="0.012090"/>
-</kw>
-<msg time="2025-10-24T12:13:30.544578" level="INFO">${has_next} = True</msg>
-<var>${has_next}</var>
-<arg>Page Should Contain Element</arg>
-<arg>id=next2</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.532061" elapsed="0.012593"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${has_next}</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.544847" elapsed="0.000287"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:30.561594" level="INFO">Element 'id=next2' is displayed.</msg>
-<arg>id=next2</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.545510" elapsed="0.016279"/>
-</kw>
-<msg time="2025-10-24T12:13:30.561970" level="INFO">${is_visible} = True</msg>
-<var>${is_visible}</var>
-<arg>Element Should Be Visible</arg>
-<arg>id=next2</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.545303" elapsed="0.016742"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${is_visible}</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.562222" elapsed="0.000259"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
-<arg>id=next2</arg>
-<doc>Verifies that element identified by ``locator`` is enabled.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.562839" elapsed="0.020925"/>
-</kw>
-<msg time="2025-10-24T12:13:30.583989" level="INFO">${is_enabled} = True</msg>
-<var>${is_enabled}</var>
-<arg>Element Should Be Enabled</arg>
-<arg>id=next2</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.562647" elapsed="0.021436"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${is_enabled}</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.584258" elapsed="0.000248"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=next2</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.584663" elapsed="0.301872"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-10-24T12:13:32.887433" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-10-24T12:13:30.886821" elapsed="2.000861"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=next2</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-24T12:13:32.887888" elapsed="0.024622"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>id=next2</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2025-10-24T12:13:32.912782" elapsed="0.019345"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:32.932638" level="INFO">Clicking element 'id=next2'.</msg>
-<arg>id=next2</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:32.932383" elapsed="0.056543"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-10-24T12:13:33.989831" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-10-24T12:13:32.989282" elapsed="1.000962"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>css=#tbodyid .card-title a</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-10-24T12:13:33.990590" elapsed="0.009806"/>
-</kw>
-<status status="PASS" start="2025-10-24T12:13:30.347679" elapsed="3.652877"/>
-</iter>
-<iter>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.001245" level="INFO">${page} = []</msg>
-<var>${page}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.001053" elapsed="0.000292"/>
-</kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:34.010817" level="INFO">${els} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.114")&gt;, &lt;selenium.webdri...</msg>
-<var>${els}</var>
-<arg>css=#tbodyid .card-title a</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.001488" elapsed="0.009486"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:34.020048" level="INFO">${t} = Apple monitor 24</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.011508" elapsed="0.008792"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.020611" elapsed="0.000985"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.114")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:34.011343" elapsed="0.010472"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:34.035023" level="INFO">${t} = MacBook air</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.022404" elapsed="0.012915"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.035666" elapsed="0.000945"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.115")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:34.022123" elapsed="0.014677"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:34.049402" level="INFO">${t} = Dell i7 8gb</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.037334" elapsed="0.012340"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.049984" elapsed="0.000879"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.116")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:34.037079" elapsed="0.013965"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:34.062325" level="INFO">${t} = 2017 Dell 15.6 Inch</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.051569" elapsed="0.011007"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.062868" elapsed="0.000846"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.117")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:34.051318" elapsed="0.012586"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:34.077346" level="INFO">${t} = ASUS Full HD</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.064472" elapsed="0.013138"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.077924" elapsed="0.000922"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.118")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:34.064194" elapsed="0.014871"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:34.091604" level="INFO">${t} = MacBook Pro</msg>
-<var>${t}</var>
-<arg>${el}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.079649" elapsed="0.012217"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${page}</arg>
-<arg>${t.strip()}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.092173" elapsed="0.000890"/>
-</kw>
-<var name="${el}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b6abe5d500c1f0b9c208653732c82336", element="f.A9129CB560F402616AB3C96E5EA55A8D.d.C6DE6A1FBEDF1BEDC46BFC55F0FC6CC2.e.119")&gt;</var>
-<status status="PASS" start="2025-10-24T12:13:34.079368" elapsed="0.013872"/>
-</iter>
-<var>${el}</var>
-<value>@{els}</value>
-<status status="PASS" start="2025-10-24T12:13:34.011111" elapsed="0.082292"/>
-</for>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.093927" level="INFO">Length is 9.</msg>
-<msg time="2025-10-24T12:13:34.094122" level="INFO">${before} = 9</msg>
-<var>${before}</var>
-<arg>${seen}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.093663" elapsed="0.000568"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.094873" level="INFO">${seen} = ['2017 Dell 15.6 Inch', 'ASUS Full HD', 'Apple monitor 24', 'Dell i7 8gb', 'HTC One M9', 'Iphone 6 32gb', 'MacBook Pro', 'MacBook air', 'Nexus 6', 'Nokia lumia 1520', 'Samsung galaxy s6', 'Samsung gal...</msg>
-<var>${seen}</var>
-<arg>list(sorted(set($seen) | set($page)))</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.094436" elapsed="0.000573"/>
-</kw>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.095415" level="INFO">Length is 15.</msg>
-<msg time="2025-10-24T12:13:34.095576" level="INFO">${after} = 15</msg>
-<var>${after}</var>
-<arg>${seen}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.095200" elapsed="0.000474"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.096988" level="INFO">${stall} = 0</msg>
-<var>${stall}</var>
-<arg>${${after} &lt;= ${before} and ${stall}+1 or 0}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.096057" elapsed="0.001053"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:34.109164" level="INFO">Current page contains element 'id=next2'.</msg>
-<arg>id=next2</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.097546" elapsed="0.011978"/>
-</kw>
-<msg time="2025-10-24T12:13:34.109765" level="INFO">${has_next} = True</msg>
-<var>${has_next}</var>
-<arg>Page Should Contain Element</arg>
-<arg>id=next2</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.097306" elapsed="0.012584"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${has_next}</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.110323" elapsed="0.000412"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-10-24T12:13:34.294671" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-57.png"&gt;&lt;img src="selenium-screenshot-57.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-10-24T12:13:34.294931" level="FAIL">The element 'id=next2' should be visible, but it is not.</msg>
-<arg>id=next2</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-10-24T12:13:34.111359" elapsed="0.186037">The element 'id=next2' should be visible, but it is not.</status>
-</kw>
-<msg time="2025-10-24T12:13:34.297633" level="INFO">${is_visible} = False</msg>
-<var>${is_visible}</var>
-<arg>Element Should Be Visible</arg>
-<arg>id=next2</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.111017" elapsed="0.186702"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.298309" level="INFO">Exiting for loop altogether.</msg>
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.298174" elapsed="0.000269"/>
-</kw>
-<arg>not ${is_visible}</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.297891" elapsed="0.000648"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${is_enabled}</var>
-<arg>Element Should Be Enabled</arg>
-<arg>id=next2</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-10-24T12:13:34.298684" elapsed="0.000087"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${is_enabled}</arg>
-<arg>Exit For Loop</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-10-24T12:13:34.298896" elapsed="0.000071"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>id=next2</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="NOT RUN" start="2025-10-24T12:13:34.299086" elapsed="0.000078"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-10-24T12:13:34.299273" elapsed="0.000063"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=next2</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-10-24T12:13:34.299442" elapsed="0.000063"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>id=next2</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" start="2025-10-24T12:13:34.299609" elapsed="0.000060"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>id=next2</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-10-24T12:13:34.299789" elapsed="0.000069"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-10-24T12:13:34.299961" elapsed="0.000061"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>css=#tbodyid .card-title a</arg>
-<arg>${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-10-24T12:13:34.300127" elapsed="0.000066"/>
-</kw>
-<status status="PASS" start="2025-10-24T12:13:34.000649" elapsed="0.299610"/>
-</iter>
-<status status="PASS" start="2025-10-24T12:13:30.347677" elapsed="3.952661"/>
-</while>
-<return>
-<value>${seen}</value>
-<status status="PASS" start="2025-10-24T12:13:34.300434" elapsed="0.000083"/>
-</return>
-<msg time="2025-10-24T12:13:34.300692" level="INFO">${ui_titles} = ['2017 Dell 15.6 Inch', 'ASUS Full HD', 'Apple monitor 24', 'Dell i7 8gb', 'HTC One M9', 'Iphone 6 32gb', 'MacBook Pro', 'MacBook air', 'Nexus 6', 'Nokia lumia 1520', 'Samsung galaxy s6', 'Samsung gal...</msg>
-<var>${ui_titles}</var>
-<status status="PASS" start="2025-10-24T12:13:30.346489" elapsed="3.954343"/>
-</kw>
-<kw name="Assert API Phones Are In UI">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.428526" level="INFO">${missing} = []</msg>
-<var>${missing}</var>
-<arg>sorted(list(set($api_titles) - set($ui_titles)))</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.428006" elapsed="0.000704"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.429243" level="INFO">UI titles: ['2017 Dell 15.6 Inch', 'ASUS Full HD', 'Apple monitor 24', 'Dell i7 8gb', 'HTC One M9', 'Iphone 6 32gb', 'MacBook Pro', 'MacBook air', 'Nexus 6', 'Nokia lumia 1520', 'Samsung galaxy s6', 'Samsung galaxy s7', 'Sony vaio i5', 'Sony vaio i7', 'Sony xperia z5']</msg>
-<arg>UI titles: ${ui_titles}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.428947" elapsed="0.000474"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.430023" level="INFO">API titles: ['HTC One M9', 'Iphone 6 32gb', 'Nexus 6', 'Nokia lumia 1520', 'Samsung galaxy s6', 'Samsung galaxy s7', 'Sony xperia z5']</msg>
-<arg>API titles: ${api_titles}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.429636" elapsed="0.000666"/>
-</kw>
-<kw name="Should Be Empty" owner="BuiltIn">
-<msg time="2025-10-24T12:13:34.430870" level="INFO">Length is 0.</msg>
-<arg>${missing}</arg>
-<arg>Missing from UI: ${missing}</arg>
-<doc>Verifies that the given item is empty.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.430525" elapsed="0.000508"/>
-</kw>
-<arg>${api_titles}</arg>
-<arg>${ui_titles}</arg>
-<status status="PASS" start="2025-10-24T12:13:34.427317" elapsed="0.003898"/>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="NOT RUN" start="2025-10-26T22:48:05.538172" elapsed="0.000116"/>
+</kw>
+<kw name="Generate Unique Credentials">
+<var>${u}</var>
+<var>${p}</var>
+<status status="NOT RUN" start="2025-10-26T22:48:05.538671" elapsed="0.000112"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Using credentials: ${u} / ${p}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-10-26T22:48:05.539067" elapsed="0.000086"/>
+</kw>
+<kw name="Sign Up">
+<arg>${u}</arg>
+<arg>${p}</arg>
+<status status="NOT RUN" start="2025-10-26T22:48:05.539584" elapsed="0.000108"/>
+</kw>
+<kw name="Login">
+<arg>${u}</arg>
+<arg>${p}</arg>
+<status status="NOT RUN" start="2025-10-26T22:48:05.540204" elapsed="0.000179"/>
+</kw>
+<kw name="Add Product To Cart">
+<arg>Sony vaio i5</arg>
+<status status="NOT RUN" start="2025-10-26T22:48:05.540821" elapsed="0.000103"/>
+</kw>
+<kw name="Place Order">
+<status status="NOT RUN" start="2025-10-26T22:48:05.541278" elapsed="0.000099"/>
+</kw>
+<kw name="Logout">
+<status status="NOT RUN" start="2025-10-26T22:48:05.541874" elapsed="0.000090"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-10-24T12:13:34.449205" elapsed="2.862638"/>
+<status status="NOT RUN" start="2025-10-26T22:48:05.542328" elapsed="0.000095"/>
 </kw>
-<status status="PASS" start="2025-10-24T12:13:27.500319" elapsed="9.812353"/>
+<status status="FAIL" start="2025-10-26T22:48:03.834766" elapsed="1.708076">Evaluating expression "sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()" failed: ConnectionError: Could not reach host. Are you offline?</status>
 </test>
-<status status="PASS" start="2025-10-24T12:13:27.051869" elapsed="10.265087"/>
+<status status="FAIL" start="2025-10-26T22:48:03.505031" elapsed="2.039139"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="demoblaze api UI 02" id="s1" pass="1" fail="0" skip="0">demoblaze api UI 02</stat>
+<stat name="Demoblaze E2E" id="s1" pass="0" fail="1" skip="0">Demoblaze E2E</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-10-24T12:13:27.021117" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api_UI_02.robot' on line 30: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-10-24T12:13:27.021776" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_api_UI_02.robot' on line 69: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-10-26T22:48:03.475343" level="WARN">Error in file 'c:\KSS_Github_Personal\RobotFramwork_Seleniumbased_Project\tests\demoblaze_e2e.robot' on line 24: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>

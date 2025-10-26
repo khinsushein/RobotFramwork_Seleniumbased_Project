@@ -14,13 +14,14 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    Create WebDriver    Chrome    options=${options}
+    ${driver_path}=    Evaluate    sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()    sys, webdriver_manager.chrome
+    Create WebDriver    Chrome    executable_path=${driver_path}    options=${options}
     Go To    https://www.demoblaze.com/
 Generate Unique Credentials
     ${rand}=        Generate Random String    8    [LOWER]
     ${username}=    Set Variable    testuser_${rand}
     ${password}=    Set Variable    testpass_${rand}
-    [Return]    ${username}    ${password}
+    [RETURN]    ${username}    ${password}
 
 Sign Up
     [Arguments]    ${username}    ${password}
