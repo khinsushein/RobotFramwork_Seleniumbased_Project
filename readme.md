@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/Robot%20Framwork%20--7.3.2)
+
 # Robot Framework Selenium-based Project for Demoblaze
 
 This project automates end-to-end user journeys and API/UI validations for [Demoblaze](https://www.demoblaze.com/) using Robot Framework, SeleniumLibrary, and RequestsLibrary.
@@ -60,15 +62,20 @@ robot tests/
 ```
 
 ## HTML report
-📄 [Download latest HTML report](https://github.com/khinsushein/RobotFramwork_Seleniumbased_Project/actions/runs/)
+robot  [Download latest HTML report](https://github.com/khinsushein/RobotFramwork_Seleniumbased_Project/actions/runs/)
+-  Chrome is installed automatically in CI.
+- ChromeDriver is managed by [`webdriver_manager`](https://github.com/SergeyPirogov/webdriver_manager).
+- Test results (`output.xml`, `log.html`, `report.html`) are uploaded as workflow artifacts.
 
-## Author
-[Khin Su Shein] — QA Automation Engineer  
-Based in France, open to Luxembourg/Switzerland roles
+
 ## Troubleshooting
 
 - **SessionNotCreatedException:** Ensure Chrome is installed and `webdriver_manager` is used for driver management.
 - **No keyword with name 'Create Session':** Make sure `robotframework-requests` is in `requirements.txt`.
+
+## Author
+[Khin Su Shein] — QA Automation Engineer  
+Based in France, open to Luxembourg/Switzerland roles
 
 
 
