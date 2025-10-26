@@ -16,7 +16,8 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    Create WebDriver    Chrome    options=${options}
+    ${driver_path}=    Evaluate    sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()    sys, webdriver_manager.chrome
+    Create WebDriver    Chrome    executable_path=${driver_path}    options=${options}
     Go To    https://www.demoblaze.com/
 
 Get Phone Titles From API
@@ -27,7 +28,7 @@ Get Phone Titles From API
     # Keep only phones (API cat is 'phone')
     ${phones}=    Evaluate    [i for i in $items if str(i.get('cat','')).lower() == 'phone']
     ${titles}=     Evaluate    sorted({ i['title'].strip() for i in $phones })
-    [Return]    ${titles}
+    [RETURN]    ${titles}
 
 Open Demoblaze And Go To Phones
     Open Browser    https://www.demoblaze.com/    ${BROWSER}
@@ -51,11 +52,11 @@ Collect All UI Titles In Phones
         ${seen}=      Evaluate    list(sorted(set($seen) | set($page)))
         ${after}=     Get Length    ${seen}
         ${stall}=     Set Variable    ${${after} <= ${before} and ${stall}+1 or 0}
-        ${has_next}=  Run Keyword And Return Status    Page Should Contain Element    id=next2
+        ${has_next}=  Run Keyword And RETURN Status    Page Should Contain Element    id=next2
         Run Keyword If    not ${has_next}    Exit For Loop
-        ${is_visible}=   Run Keyword And Return Status    Element Should Be Visible    id=next2
+        ${is_visible}=   Run Keyword And RETURN Status    Element Should Be Visible    id=next2
         Run Keyword If    not ${is_visible}    Exit For Loop
-        ${is_enabled}=   Run Keyword And Return Status    Element Should Be Enabled    id=next2
+        ${is_enabled}=   Run Keyword And RETURN Status    Element Should Be Enabled    id=next2
         Run Keyword If    not ${is_enabled}    Exit For Loop
         Scroll Element Into View    id=next2
         Sleep    2s
@@ -66,7 +67,7 @@ Collect All UI Titles In Phones
         Wait Until Page Contains Element    css=#tbodyid .card-title a    ${TIMEOUT}
         # Do NOT use previously fetched elements after clicking "Next"
     END
-    [Return]    ${seen}
+    [RETURN]    ${seen}
 
 Assert API Phones Are In UI
     [Arguments]    ${api_titles}    ${ui_titles}

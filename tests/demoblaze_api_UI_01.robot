@@ -11,13 +11,15 @@ ${BROWSER}     chrome
 
 *** Keywords ***
 
+
 Open Chrome With CI Options
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${options}    add_argument    --no-sandbox
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    Create WebDriver    Chrome    options=${options}
+    ${driver_path}=    Evaluate    sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()    sys, webdriver_manager.chrome
+    Create WebDriver    Chrome    executable_path=${driver_path}    options=${options}
     Go To    https://www.demoblaze.com/
 
 Get Product Titles From API
@@ -26,7 +28,7 @@ Get Product Titles From API
     ${data}=    Evaluate    $resp.json()
     ${items}=   Get From Dictionary    ${data}    Items
     ${titles}=  Evaluate    [item['title'].strip() for item in $items]
-    [Return]    ${titles}
+    [RETURN]    ${titles}
 
 *** Test Cases ***
 
@@ -44,4 +46,4 @@ Verify Products From API Are Shown In UI
             Log To Console    Found laptop: ${title}
         END
     END
-    Close Browser
+    [Teardown]    Close All Browsers
