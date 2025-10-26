@@ -1,4 +1,4 @@
-![Static Badge](https://img.shields.io/badge/Robot%20Framwork%20--7.3.2)
+![Robot Framework](https://img.shields.io/badge/Robot%20Framework-7.3.2-brightgreen)
 
 # Robot Framework Selenium-based Project for Demoblaze
 

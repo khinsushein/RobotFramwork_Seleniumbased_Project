@@ -30,7 +30,7 @@ Get Phone Titles From API
     [RETURN]    ${titles}
 
 Open Demoblaze And Go To Phones
-    Open Browser    https://www.demoblaze.com/    ${BROWSER}
+    Open Chrome With CI Options
     Maximize Browser Window
     Wait Until Page Contains Element    css=#tbodyid .card-title a    ${TIMEOUT}
     Click Element    xpath=//a[normalize-space(.)='Phones']
