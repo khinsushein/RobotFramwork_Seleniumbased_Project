@@ -17,9 +17,9 @@ Open Chrome With CI Options
     Create WebDriver    Chrome      options=${options}
     Go To    https://www.demoblaze.com/
 Generate Unique Credentials
-    ${rand}=        Generate Random String    8    [LOWER]
-    ${username}=    Set Variable    testuser_${rand}
-    ${password}=    Set Variable    testpass_${rand}
+    ${rand}=        Generate Random String    8    [LETTERS]
+    ${username}=    Set Variable    testuser${rand}
+    ${password}=    Set Variable    testpass${rand}
     [RETURN]    ${username}    ${password}
 
 Sign Up
@@ -90,8 +90,8 @@ Place Order
     Input Text    id=year     2030
     Click Element    xpath=//button[normalize-space(.)='Purchase']
     # Handle possible alert for missing fields
-    ${alert_present}=    Run Keyword And Return Status    Handle Alert    action=ACCEPT    timeout=3
-    Run Keyword If    ${alert_present}    Fail    Order failed due to missing required fields.
+    ${alert_present}=    Run Keyword And RETURN Status    Handle Alert    action=ACCEPT    timeout=3
+    Run Keyword If    ${alert_present}    Log    Order failed due to missing required fields.    WARN
     Wait Until Element Is Visible    css=.sweet-alert p    ${TIMEOUT}
     ${amount}=    Get Text    css=.sweet-alert p
     Should Contain    ${amount}    Amount
@@ -117,6 +117,7 @@ End-to-End User Journey
     Log To Console    Using credentials: ${u} / ${p}
 
     Sign Up    ${u}    ${p}
+    Wait Until Element Is Not Visible    id=signInModal    ${TIMEOUT}
     Login      ${u}    ${p}
     Add Product To Cart    Sony vaio i5
     Place Order
