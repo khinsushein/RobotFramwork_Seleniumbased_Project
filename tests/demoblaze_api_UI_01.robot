@@ -39,7 +39,7 @@ Verify Products From API Are Shown In UI
     Click Element    xpath=//a[normalize-space(.)='Laptops']
     FOR    ${title}    IN    @{titles}
         Log To Console    Checking: ${title}
-        ${is_laptop}=    Run Keyword And Return Status    Should Contain    ${title.lower()}    vaio
+        ${is_laptop}=    Run Keyword And RETURN Status    Should Contain    ${title.lower()}    vaio
         IF    ${is_laptop}
             Wait Until Element Is Visible    xpath=//a[normalize-space(.)='${title}']    10
             Log To Console    Found laptop: ${title}
