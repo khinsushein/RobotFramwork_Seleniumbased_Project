@@ -14,8 +14,7 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    ${driver_path}=    Evaluate    sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()    sys, webdriver_manager.chrome
-    Create WebDriver    Chrome    executable_path=${driver_path}    options=${options}
+    Create WebDriver    Chrome      options=${options}
     Go To    https://www.demoblaze.com/
 Generate Unique Credentials
     ${rand}=        Generate Random String    8    [LOWER]
@@ -90,6 +89,9 @@ Place Order
     Input Text    id=month    12
     Input Text    id=year     2030
     Click Element    xpath=//button[normalize-space(.)='Purchase']
+    # Handle possible alert for missing fields
+    ${alert_present}=    Run Keyword And Return Status    Handle Alert    action=ACCEPT    timeout=3
+    Run Keyword If    ${alert_present}    Fail    Order failed due to missing required fields.
     Wait Until Element Is Visible    css=.sweet-alert p    ${TIMEOUT}
     ${amount}=    Get Text    css=.sweet-alert p
     Should Contain    ${amount}    Amount

@@ -15,8 +15,7 @@ Open Chrome With CI Options
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-gpu
-    ${driver_path}=    Evaluate    sys.modules['webdriver_manager.chrome'].ChromeDriverManager().install()    sys, webdriver_manager.chrome
-    Create WebDriver    Chrome    executable_path=${driver_path}    options=${options}
+    Create WebDriver    Chrome       options=${options}
     Go To    https://api.demoblaze.com
 Make API Session
     &{headers}=    Create Dictionary    Content-Type=application/json
