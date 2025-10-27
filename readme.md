@@ -1,4 +1,5 @@
 ![Robot Framework](https://img.shields.io/badge/Robot%20Framework-7.3.2-brightgreen)
+![Selenium](https://img.shields.io/badge/Selenium-4.37.0-blue)
 
 # Robot Framework Selenium-based Project for Demoblaze
 
@@ -12,7 +13,7 @@ This project automates end-to-end user journeys and API/UI validations for [Demo
 
 ## Prerequisites
 
-- Python 3.8+
+- Python 3.13+
 - Google Chrome (for local runs)
 - [pip](https://pip.pypa.io/en/stable/)
 
