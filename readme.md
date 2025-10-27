@@ -62,7 +62,7 @@ robot tests/
 ```
 
 ## HTML report
-robot  [Download latest HTML report](https://github.com/khinsushein/RobotFramwork_Seleniumbased_Project/actions/runs/)
+robot  [Download latest HTML report](https://github.com/khinsushein/RobotFramwork_Seleniumbased_Project/actions)
 -  Chrome is installed automatically in CI.
 - ChromeDriver is managed by [`webdriver_manager`](https://github.com/SergeyPirogov/webdriver_manager).
 - Test results (`output.xml`, `log.html`, `report.html`) are uploaded as workflow artifacts.
@@ -72,6 +72,13 @@ robot  [Download latest HTML report](https://github.com/khinsushein/RobotFramwor
 
 - **SessionNotCreatedException:** Ensure Chrome is installed and `webdriver_manager` is used for driver management.
 - **No keyword with name 'Create Session':** Make sure `robotframework-requests` is in `requirements.txt`.
+
+## Latest Test Results
+
+**Pass:** 4  
+**Fail:** 1  
+
+See [log.html](https://github.com/khinsushein/RobotFramwork_Seleniumbased_Project/actions) for details.
 
 ## Author
 [Khin Su Shein] — QA Automation Engineer  
