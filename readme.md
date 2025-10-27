@@ -75,8 +75,8 @@ robot  [Download latest HTML report](https://github.com/khinsushein/RobotFramwor
 
 ## Latest Test Results
 
-**Pass:** 4  
-**Fail:** 1  
+**Pass:** 5  
+**Fail:** 0  
 
 See [log.html](https://github.com/khinsushein/RobotFramwork_Seleniumbased_Project/actions) for details.
 
